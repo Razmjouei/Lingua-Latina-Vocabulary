@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>واژگان Lingua Latina</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#faf8f4;--sf:#fff;--tx:#222;--mu:#6b6b6b;--bd:#ddd6c8;--ac:#8a3b2e;--act:#fff;--wb:#fef3c7;--wt:#92400e;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1b19;--sf:#262522;--tx:#eee;--mu:#a09b92;--bd:#3d3a35;--ac:#e0866f;--act:#1c1b19;--wb:#3b2f12;--wt:#fcd34d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1c1b19;--sf:#262522;--tx:#eee;--mu:#a09b92;--bd:#3d3a35;--ac:#e0866f;--act:#1c1b19;--wb:#3b2f12;--wt:#fcd34d;color-scheme:dark}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 Vazirmatn,Tahoma,system-ui,sans-serif}
+main{max-width:980px;margin:0 auto;padding:12px}
+h1{font-size:1.2rem;margin:4px 0 10px}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:12px;margin-bottom:12px}
+.g{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+label{display:block;font-size:.85rem;color:var(--tx)}
+.hint{display:block;font-size:.75rem;color:var(--mu);direction:ltr;text-align:left;margin-bottom:2px}
+input,select,textarea,button{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:7px 9px;width:100%}
+textarea{min-height:60px;resize:vertical}
+.lat{direction:ltr;text-align:left}
+button{width:auto;cursor:pointer}
+button.p{background:var(--ac);color:var(--act);border-color:var(--ac);font-weight:700}
+.sticky{border-color:var(--ac)}
+.w{grid-column:1/-1}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.lr{display:flex;gap:4px;margin-bottom:4px}
+.lr button{padding:4px 10px}
+.warn{background:var(--wb);color:var(--wt);border-radius:8px;padding:6px 10px;margin-top:8px;font-size:.9rem}
+.row{border-top:1px solid var(--bd);padding:8px 2px;cursor:pointer}
+.row:first-child{border-top:0}
+.top{display:flex;gap:10px;justify-content:space-between;align-items:baseline}
+.lw{direction:ltr;font-weight:700;font-size:1.05rem}
+.df{direction:ltr;color:var(--mu);font-size:.85rem;text-align:right}
+.loc{direction:ltr;font-size:.75rem;color:var(--mu);white-space:nowrap}
+.tr{font-size:.92rem}
+.det{display:none;margin-top:6px;font-size:.9rem;background:var(--bg);border-radius:8px;padding:8px}
+.row.o .det{display:block}
+.det pre{white-space:pre-wrap;font:inherit;direction:ltr;text-align:left;margin:4px 0}
+.mu{color:var(--mu);font-size:.85rem}
+#badge{font-size:.75rem;border:1px solid var(--bd);border-radius:99px;padding:1px 8px;color:var(--mu)}
+#msg{position:fixed;inset:auto 12px 12px;background:var(--ac);color:var(--act);padding:8px 12px;border-radius:8px;display:none;z-index:9}
+</style>
+</head>
+<body>
+<main>
+<h1>📜 واژگان Lingua Latina <span class="mu" id="cnt"></span> <span id="badge">…</span></h1>
+
+<div class="card sticky"><div class="mu" style="margin-bottom:6px">📌 این سه کادر بعد از ثبت هر واژه پاک نمی‌شوند</div>
+<div class="g">
+<div><label>کتاب (مثلاً I)</label><input id="hbk" class="lat"></div>
+<div><label>درس (مثلاً 3)</label><input id="hls" class="lat"></div>
+<div><label>صفحه (مثلاً 17)</label><input id="hpg" class="lat"></div>
+</div></div>
+
+<div class="card" id="form">
+<div class="g">
+<div><label>واژه *</label><input id="fl" class="lat" autocomplete="off"></div>
+<div class="w"><label>شکل دیکشنری</label>
+<span class="hint">اسم: puella, puellae, f. &nbsp;|&nbsp; صفت: bonus, bona, bonum &nbsp;|&nbsp; فعل: amō, amāre, amāvī, amātum</span>
+<input id="fdf" class="lat"></div>
+<div><label>نوع کلمه</label><select id="ft"></select></div>
+<div><label>ترجمهٔ انگلیسی</label><div id="len"></div><button type="button" data-add="en">+ معنی دیگر</button></div>
+<div><label>ترجمهٔ فارسی</label><div id="lfa"></div><button type="button" data-add="fa">+ معنی دیگر</button></div>
+<div class="w"><label>توضیح لاتین</label><input id="fla" class="lat"></div>
+<div class="w"><label>دستوری (حالت‌گیری، i-stem، deponent، ...)</label><input id="fg" class="lat"></div>
+<div class="w"><label>جملهٔ مثال</label><input id="fex" class="lat"></div>
+<div class="w"><label>صرف</label><textarea id="fc" class="lat"></textarea></div>
+</div>
+<div id="dup"></div>
+<div class="bar"><button class="p" id="save">ثبت</button><button id="cancel" style="display:none">انصراف</button><span class="mu" id="mode"></span></div>
+</div>
+
+<div class="card">
+<div class="g">
+<div><label>کتاب</label><select id="fbk"></select></div>
+<div><label>درس</label><select id="fls"></select></div>
+<div><label>صفحه</label><select id="fpg"></select></div>
+<div><label>نوع</label><select id="fty"></select></div>
+<div><label>جستجو</label><input id="q"></div>
+<div><label>ترتیب</label><select id="so"><option value="loc">کتاب ← درس ← صفحه</option><option value="alpha">الفبایی</option><option value="new">جدیدترین</option></select></div>
+</div>
+<div class="bar"><button id="here">📍 همین محلِ کادرهای بالا</button><button id="reset">پاک‌کردن فیلترها</button></div>
+<div id="list" style="margin-top:8px"></div>
+<div class="bar"><button id="more" style="display:none">نمایش بیشتر</button></div>
+</div>
+
+<div class="card"><div class="bar">
+<button id="xj">پشتیبان JSON</button><button id="xc">خروجی CSV</button>
+<button id="imp">ورود از JSON</button><input type="file" id="file" accept=".json" style="display:none">
+</div><div class="mu" style="margin-top:6px" id="note"></div></div>
+</main>
+<div id="msg"></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const TYPES=[['n','اسم'],['adj','صفت'],['v','فعل'],['adv','قید'],['prep','حرف اضافه'],['pron','ضمیر'],['conj','حرف ربط'],['num','عدد'],['interj','شبه‌جمله'],['other','سایر']];
+const tn=Object.fromEntries(TYPES);
+const F=['l','df','t','la','g','ex','c'],LS={en:'#len',fa:'#lfa'};
+const norm=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const arr=v=>Array.isArray(v)?v:(v?[String(v)]:[]);
+const nat=(a,b)=>String(a||'').localeCompare(String(b||''),'en',{numeric:true});
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+let cloud=null,B={},all=[],idx={},editing=null,shown=200,q=Promise.resolve();
+
+function msg(t,err){const m=$('#msg');m.textContent=t;m.style.display='block';clearTimeout(msg.t);msg.t=setTimeout(()=>m.style.display='none',err?6000:2000)}
+$('#ft').innerHTML=TYPES.map(t=>`<option value="${t[0]}">${t[1]}</option>`).join('');
+$('#fty').innerHTML='<option value="">همه</option>'+TYPES.map(t=>`<option value="${t[0]}">${t[1]}</option>`).join('');
+const lsGet=k=>{try{return localStorage.getItem(k)}catch(e){return null}},lsSet=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+
+['hbk','hls','hpg'].forEach(k=>{$('#'+k).value=lsGet('lv_'+k)||'';$('#'+k).addEventListener('input',()=>lsSet('lv_'+k,$('#'+k).value))});
+
+/* ---------- multi-meaning lists ---------- */
+const rowHtml=(k,v)=>`<div class="lr"><input class="${k==='en'?'lat':''}" value="${esc(v)}"><button type="button" data-x title="حذف">×</button></div>`;
+function setList(k,a){a=a&&a.length?a:[''];$(LS[k]).innerHTML=a.map(v=>rowHtml(k,v)).join('')}
+const getList=k=>[...$(LS[k]).querySelectorAll('input')].map(i=>i.value.trim()).filter(Boolean);
+$('#form').addEventListener('click',e=>{
+  const a=e.target.closest('[data-add]'),x=e.target.closest('[data-x]');
+  if(a){const c=$(LS[a.dataset.add]);c.insertAdjacentHTML('beforeend',rowHtml(a.dataset.add,''));c.lastElementChild.querySelector('input').focus()}
+  if(x){const c=x.closest('div[id]'),r=x.parentElement;if(c.children.length>1)r.remove();else r.querySelector('input').value=''}
+});
+setList('en');setList('fa');
+
+/* ---------- storage backends ---------- */
+let _idb=null;
+const idb=()=>_idb||(_idb=new Promise((res,rej)=>{const r=indexedDB.open('latinvocab',1);r.onupgradeneeded=()=>r.result.createObjectStore('w');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}));
+async function idbAll(){const d=await idb();return new Promise((res,rej)=>{const out={},c=d.transaction('w').objectStore('w').openCursor();c.onsuccess=()=>{const u=c.result;if(u){out[u.key]=u.value;u.continue()}else res(out)};c.onerror=()=>rej(c.error)})}
+async function idbPut(k,v){const d=await idb();return new Promise((res,rej)=>{const t=d.transaction('w','readwrite');t.objectStore('w').put(v,k);t.oncomplete=()=>res();t.onerror=()=>rej(t.error)})}
+const persist=k=>cloud?cloud.doc('w/'+k).set({items:B[k]}):idbPut(k,B[k]);
+const enqueue=f=>{q=q.then(f).catch(e=>msg('خطا در ذخیره: '+((e&&(e.code||e.message))||e),1))};
+
+/* ---------- data ---------- */
+function fix(w){w.en=arr(w.en);w.fa=arr(w.fa);return w}
+function rebuild(){
+  all=Object.keys(B).sort().flatMap(k=>B[k]);
+  idx={};all.forEach(w=>{(idx[norm(w.l)]=idx[norm(w.l)]||[]).push(w)});
+  $('#cnt').textContent='('+all.length+' واژه)';
+  cascade();
+}
+function fillOpts(sel,vals){const cur=sel.value;sel.innerHTML='<option value="">همه</option>'+vals.map(v=>`<option>${esc(v)}</option>`).join('');sel.value=vals.includes(cur)?cur:''}
+const uniq=(a,f)=>[...new Set(a.map(f).filter(Boolean))].sort(nat);
+function cascade(){
+  fillOpts($('#fbk'),uniq(all,w=>w.bk));
+  const bk=$('#fbk').value;
+  fillOpts($('#fls'),uniq(all.filter(w=>!bk||w.bk===bk),w=>w.ls));
+  const ls=$('#fls').value;
+  fillOpts($('#fpg'),uniq(all.filter(w=>(!bk||w.bk===bk)&&(!ls||w.ls===ls)),w=>w.pg));
+  render();
+}
+function render(){
+  const s=norm($('#q').value),bk=$('#fbk').value,ls=$('#fls').value,pg=$('#fpg').value,ty=$('#fty').value,so=$('#so').value;
+  let r=all.filter(w=>(!bk||w.bk===bk)&&(!ls||w.ls===ls)&&(!pg||w.pg===pg)&&(!ty||w.t===ty)&&(!s||norm([w.l,w.df,w.en.join(' '),w.fa.join(' '),w.la,w.ex].join(' ')).includes(s)));
+  if(so==='loc')r.sort((a,b)=>nat(a.bk,b.bk)||nat(a.ls,b.ls)||nat(a.pg,b.pg)||norm(a.l).localeCompare(norm(b.l)));
+  else if(so==='alpha')r.sort((a,b)=>norm(a.l).localeCompare(norm(b.l)));
+  else r.sort((a,b)=>(b.ts||0)-(a.ts||0));
+  $('#list').innerHTML=r.slice(0,shown).map(w=>`<div class="row" data-id="${w.id}"><div class="top"><div><span class="lw">${esc(w.l)}</span> <span class="mu">${esc(tn[w.t]||'')}</span><div class="df">${esc(w.df)}</div></div><div class="loc">${esc([w.bk,w.ls,w.pg].filter(Boolean).join(' · '))}</div></div><div class="tr">${esc(w.fa.join(' ؛ '))}${w.fa.length&&w.en.length?' — ':''}<span style="direction:ltr;unicode-bidi:embed">${esc(w.en.join('; '))}</span></div>
+  <div class="det">${w.la?`<div dir="ltr">${esc(w.la)}</div>`:''}${w.g?`<div dir="ltr"><b>Gram:</b> ${esc(w.g)}</div>`:''}${w.ex?`<div dir="ltr"><i>${esc(w.ex)}</i></div>`:''}${w.c?`<pre>${esc(w.c)}</pre>`:''}<div class="bar"><button data-e="${w.id}">ویرایش</button><button data-d="${w.id}">حذف</button></div></div></div>`).join('')||'<div class="mu">واژه‌ای نیست.</div>';
+  $('#more').style.display=r.length>shown?'':'none';
+  $('#more').textContent='نمایش بیشتر ('+(r.length-shown)+')';
+}
+$('#fbk').addEventListener('input',()=>{shown=200;cascade()});
+$('#fls').addEventListener('input',()=>{shown=200;cascade()});
+['fpg','fty','q','so'].forEach(k=>$('#'+k).addEventListener('input',()=>{shown=200;render()}));
+$('#more').onclick=()=>{shown+=300;render()};
+$('#reset').onclick=()=>{['fbk','fls','fpg','fty','q'].forEach(k=>$('#'+k).value='');shown=200;cascade()};
+$('#here').onclick=()=>{
+  $('#fbk').value=$('#hbk').value.trim();cascade();
+  $('#fls').value=$('#hls').value.trim();cascade();
+  $('#fpg').value=$('#hpg').value.trim();$('#fty').value='';$('#q').value='';render();
+};
+$('#list').addEventListener('click',e=>{
+  const eb=e.target.closest('[data-e]'),d=e.target.closest('[data-d]');
+  if(eb){startEdit(eb.dataset.e);return}
+  if(d){delWord(d.dataset.d);return}
+  const row=e.target.closest('.row');if(row)row.classList.toggle('o');
+});
+
+function find(id){for(const k in B){const i=B[k].findIndex(w=>w.id===id);if(i>=0)return[k,i]}return null}
+function checkDup(){
+  const hits=(idx[norm($('#fl').value)]||[]).filter(w=>w.id!==editing&&norm($('#fl').value));
+  $('#dup').innerHTML=hits.length?`<div class="warn">⚠️ قبلاً ثبت شده: ${hits.map(w=>esc([w.l,w.bk,w.ls,w.pg].filter(Boolean).join(' · '))).join(' | ')}</div>`:'';
+  $('#save').textContent=hits.length?'ثبت (تکراری)':(editing?'ذخیرهٔ ویرایش':'ثبت');
+}
+$('#fl').addEventListener('input',checkDup);
+function clearForm(){F.forEach(k=>{if(k!=='t')$('#f'+k).value=''});setList('en');setList('fa');$('#dup').innerHTML='';editing=null;$('#cancel').style.display='none';$('#mode').textContent='';$('#save').textContent='ثبت'}
+function startEdit(id){
+  const p=find(id);if(!p)return;const w=B[p[0]][p[1]];
+  F.forEach(k=>$('#f'+k).value=w[k]||'');setList('en',w.en);setList('fa',w.fa);
+  $('#hbk').value=w.bk||'';$('#hls').value=w.ls||'';$('#hpg').value=w.pg||'';
+  editing=id;$('#cancel').style.display='';$('#mode').textContent='در حال ویرایش';checkDup();
+  $('#form').scrollIntoView({behavior:'smooth'});$('#fl').focus();
+}
+$('#cancel').onclick=clearForm;
+function place(it){
+  const ids=Object.keys(B).sort();let last=ids[ids.length-1];
+  if(!last||B[last].length>=100){last='b'+String((last?parseInt(last.slice(1),10):0)+1).padStart(4,'0');B[last]=[]}
+  B[last].push(it);return last;
+}
+function save(){
+  if(!ready){msg('هنوز داده بارگذاری نشده؛ چند ثانیه صبر کن',1);return}
+  const p=editing&&find(editing);
+  const w=p?{...B[p[0]][p[1]]}:{id:uid(),ts:Date.now()};
+  F.forEach(k=>w[k]=$('#f'+k).value.trim());
+  w.en=getList('en');w.fa=getList('fa');
+  w.bk=$('#hbk').value.trim();w.ls=$('#hls').value.trim();w.pg=$('#hpg').value.trim();
+  if(!w.l){msg('واژه را بنویس');$('#fl').focus();return}
+  let k;
+  if(p){B[p[0]][p[1]]=w;k=p[0]}else k=place(w);
+  clearForm();rebuild();enqueue(()=>persist(k));msg('ثبت شد ✓');$('#fl').focus();
+}
+$('#save').onclick=save;
+$('#form').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.tagName==='INPUT'){e.preventDefault();save()}});
+function delWord(id){
+  if(!confirm('این واژه حذف شود؟'))return;
+  const p=find(id);if(!p)return;B[p[0]].splice(p[1],1);const k=p[0];rebuild();enqueue(()=>persist(k));
+}
+
+/* ---------- export / import ---------- */
+async function out(name,text,type){
+  const blob=new Blob([text],{type});
+  try{if(window.claude&&claude.use){const d=await claude.use('downloads');if(d){await d.save({filename:name,data:blob});return true}}}catch(e){if(e&&e.code==='declined')return false}
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000);return true;
+}
+const stamp=()=>new Date().toISOString().slice(0,10);
+function note(){const b=lsGet('lv_backup');$('#note').textContent=(cloud?'داده‌ها در فضای ابری ذخیره می‌شوند و روی گوشی هم دیده می‌شوند. ':'داده‌ها فقط روی همین مرورگر و همین دستگاه ذخیره می‌شوند؛ با پاک‌کردن اطلاعات مرورگر از بین می‌روند. ')+'آخرین پشتیبان JSON: '+(b||'هنوز نگرفته‌ای')}
+$('#xj').onclick=async()=>{if(await out('latin-vocab-'+stamp()+'.json',JSON.stringify(all),'application/json')){lsSet('lv_backup',stamp());note()}};
+$('#xc').onclick=()=>{
+  const cols=['bk','ls','pg','l','df','t','en','fa','la','g','ex','c'];
+  const cell=v=>'"'+String(Array.isArray(v)?v.join(' ; '):(v||'')).replace(/"/g,'""')+'"';
+  out('latin-vocab-'+stamp()+'.csv','\ufeff'+cols.join(',')+'\n'+all.map(w=>cols.map(c=>cell(w[c])).join(',')).join('\n'),'text/csv');
+};
+$('#imp').onclick=()=>$('#file').click();
+$('#file').onchange=async e=>{
+  const f=e.target.files[0];e.target.value='';if(!f||!ready)return;
+  try{
+    const list=JSON.parse(await f.text());if(!Array.isArray(list))throw 0;
+    const ids=new Set(all.map(w=>w.id)),keys=new Set(all.map(w=>[norm(w.l),w.bk,w.ls,w.pg].join('|')));
+    const touched=new Set();let n=0,skip=0;
+    for(const w0 of list){
+      if(!w0||!w0.l)continue;const w=fix({...w0});if(!w.id)w.id=uid();
+      const key=[norm(w.l),w.bk,w.ls,w.pg].join('|');
+      if(ids.has(w.id)||keys.has(key)){skip++;continue}
+      ids.add(w.id);keys.add(key);touched.add(place(w));n++;
+    }
+    rebuild();touched.forEach(k=>enqueue(()=>persist(k)));msg(n+' واژه وارد شد'+(skip?'، '+skip+' تکراری رد شد':''));
+  }catch(x){msg('فایل معتبر نیست',1)}
+};
+
+/* ---------- start ---------- */
+let ready=false;
+(async()=>{
+  try{if(window.claude&&claude.use)cloud=await claude.use('db')}catch(e){cloud=null}
+  $('#badge').textContent=cloud?'☁️ ابری':'💾 محلی';
+  note();
+  try{
+    if(cloud){
+      cloud.collection('w').onSnapshot(s=>{B={};s.docs.forEach(d=>{B[d.id]=((d.data()||{}).items||[]).map(w=>fix(JSON.parse(JSON.stringify(w))))});ready=true;rebuild()},e=>msg('خطا در خواندن داده: '+e.code,1));
+    }else{
+      B=await idbAll();Object.values(B).forEach(a=>a.forEach(fix));ready=true;rebuild();
+      try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}
+    }
+  }catch(e){msg('ذخیره‌سازی در این مرورگر در دسترس نیست',1)}
+})();
+</script>
+</body>
+</html>
