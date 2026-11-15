@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>لغات و اصطلاحاتِ مجموعۀ لینگوئا لاتینا</title>
-<meta name="app-version" content="d64de5242b">
+<meta name="app-version" content="d1fb6393f0">
 <meta name="theme-color" content="#8a3b2e">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -53,6 +53,8 @@ button.p{background:var(--ac);color:var(--act);border-color:var(--ac);font-weigh
 .row.o .det{display:block}
 .det pre{white-space:pre-wrap;font:inherit;direction:ltr;text-align:left;margin:4px 0}
 .mu{color:var(--mu);font-size:.85rem}
+#abs button{margin-inline-start:8px}
+.lsm{font-size:.72rem;color:var(--mu);font-weight:400;margin-inline-start:6px}
 #upd{background:var(--ac);color:var(--act);border-radius:10px;padding:8px 12px;margin-bottom:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}#upd[hidden],#inst[hidden]{display:none}#upd button{background:var(--act);color:var(--ac);border-color:var(--act);font-weight:700}
 #badge{font-size:.75rem;border:1px solid var(--bd);border-radius:99px;padding:1px 8px;color:var(--mu)}
 #msg{position:fixed;inset:auto 12px 12px;background:var(--ac);color:var(--act);padding:8px 12px;border-radius:8px;display:none;z-index:30}
@@ -106,13 +108,11 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 <h4>اول از همه: پشتیبان‌گیری</h4>
 <p>کلمه‌هایت فقط داخل همین مرورگر و روی همین دستگاه می‌مانند. اگر اطلاعات مرورگر پاک شود، همه‌چیز از بین می‌رود. برای همین هفته‌ای یک بار این کار را بکن:</p>
 <ol><li>پایین صفحه دکمهٔ «پشتیبان‌گیری (JSON)» را بزن.</li><li>یک فایل ساخته می‌شود که همهٔ کلمه‌هایت داخلش است.</li><li>آن فایل را جای امن بگذار، مثلاً گوگل درایو.</li></ol>
-<p>سه نوع فایل داریم:</p>
+<p>دو نوع فایل داریم:</p>
 <ul><li><b>فایل JSON</b> مثل جعبهٔ نجات است. همه‌چیز داخلش است. فقط با همین می‌توانی کلمه‌هایت را برگردانی.</li>
-<li><b>فایل CSV</b> یک جدول ساده است تا در Excel ببینی. با آن نمی‌شود کلمه‌ها را برگرداند.</li>
 <li><b>فایل Anki</b> برای ساختن کارت‌های مرور است. راهنمایش در پنجرهٔ «کارت‌های Anki» است.</li></ul>
 <p>برای برگرداندن کلمه‌ها:</p>
-<ul><li>«ورود از JSON»: کلمه‌های تازه را به فهرست اضافه می‌کند و کلمه‌های تکراری را رد می‌کند.</li>
-<li>«بازیابی کامل»: اگر کلمه‌هایت خراب شدند یا گم شدند، با این دکمه فایل پشتیبان را باز می‌کنی و همهٔ کلمه‌ها همان‌طور که در فایل بودند برمی‌گردند. کلمه‌هایی که الان در برنامه هستند پاک می‌شوند، برای همین قبلش می‌پرسد که مطمئنی یا نه.</li></ul>
+<ul><li>«بازیابی کامل»: اگر کلمه‌هایت خراب شدند یا گم شدند، با این دکمه فایل پشتیبان را باز می‌کنی و همهٔ کلمه‌ها همان‌طور که در فایل بودند برمی‌گردند. کلمه‌هایی که الان در برنامه هستند پاک می‌شوند، برای همین قبلش می‌پرسد که مطمئنی یا نه.</li></ul>
 <h4>توضیحاتی کوتاه دربارۀ ثبت کلمه</h4>
 <ol>
 <li>بالای صفحه سه کادر هست: «عنوان کتاب»، «شمارۀ فصل یا درس»، «شمارۀ صفحه». عنوان کتاب را <b>بدون فاصله</b> بنویس، مثلاً <code>FamiliaRomana</code>. فصل و صفحه فقط عدد باشند. هر چه بنویسی همان می‌ماند تا خودت عوضش کنی.</li>
@@ -127,7 +127,6 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 </details>
 <details class="card hp" id="hdrive"><summary>☁️ پشتیبان خودکار در Google Drive</summary>
 <p>این کار فقط روی <b>ویندوز</b> و با <b>Chrome یا Edge</b> کار می‌کند. روی گوشی کار نمی‌کند.</p>
-<p><b>فکر کن این‌طور است:</b> Google Drive یک پوشه روی کامپیوترت می‌سازد. هر فایلی که در آن پوشه بگذاری، خودش به اینترنت می‌فرستد. ما به برنامه می‌گوییم فایل پشتیبان را همان‌جا بگذارد.</p>
 <ol>
 <li>برنامهٔ <b>Google Drive for desktop</b> را نصب کن. اگر قبلاً نصب است، این قدم را رد کن. با حساب Google خودت واردش شو.</li>
 <li>پوشهٔ File Explorer را باز کن. در سمت چپ، Google Drive را پیدا کن و وارد <code>My Drive</code> شو.</li>
@@ -135,9 +134,11 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 <li>برگرد به همین صفحه. پایین صفحه «انتخاب پوشهٔ پشتیبان» را بزن.</li>
 <li>یک پنجره باز می‌شود. برو داخل Google Drive، بعد <code>My Drive</code> و بعد <code>Latin-Backup</code>. دکمهٔ <code>Select Folder</code> را بزن.</li>
 <li>مرورگر می‌پرسد اجازه می‌دهی یا نه. <code>Allow</code> یا <code>Edit files</code> را بزن.</li>
-<li>حالا «پشتیبان‌گیری (JSON)» را بزن. باید بنویسد: «پشتیبان ذخیره شد (پوشهٔ Latin-Backup)».</li>
+<li>حالا «پشتیبان‌گیری (JSON)» را بزن. باید بنویسد «پشتیبان ذخیره شد ✓» و زیر دکمه‌ها بنویسد: «✅ پشتیبان خودکار روشن است (پوشهٔ Latin-Backup)».</li>
 <li>برای اطمینان، پوشهٔ <code>Latin-Backup</code> را در File Explorer باز کن. یک فایل با نام <code>latin-vocab-تاریخ.json</code> آنجا هست. کمی بعد کنارش یک تیک سبز می‌آید. یعنی روی اینترنت رفته است.</li></ol>
-<p><b>دفعه‌های بعد:</b> فقط «پشتیبان‌گیری (JSON)» را بزن. اگر مرورگر دوباره اجازه خواست، <code>Allow</code> را بزن.</p>
+<p><b>از این به بعد خودکار است:</b> بعد از هر «ثبت»، چند ثانیه بعد برنامه خودش فایل پشتیبان را در همان پوشه می‌نویسد. دو فایل می‌سازد: <code>latin-vocab-latest.json</code> که همیشه آخرین حالت است، و یک فایل برای هر روز (هفت روز آخر را نگه می‌دارد). تو هیچ کاری نباید بکنی.</p>
+<p><b>اگر مرورگر دوباره اجازه خواست:</b> یک نوار قرمز با دکمهٔ «اجازه می‌دهم» می‌آید. آن را بزن.</p>
+<p><b>اگر نوار قرمز نوشت تعداد کلمه‌ها خیلی کمتر از آخرین پشتیبان است:</b> یعنی شاید کلمه‌هایت گم شده‌اند. برنامه عمداً فایل قبلی را عوض نمی‌کند تا آن را از دست ندهی. «بازیابی کامل» را بزن و فایل <code>latin-vocab-latest.json</code> را انتخاب کن.</p>
 <p><b>اگر نوشت «پوشهٔ دانلودها»:</b> یعنی پوشه انتخاب نشده یا اجازه داده نشده است. قدم ۴ تا ۶ را دوباره انجام بده.</p>
 <p>همین روش با پوشهٔ OneDrive و Dropbox هم کار می‌کند.</p>
 </details>
@@ -174,7 +175,15 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 .meaning{direction:rtl;font-size:22px}
 .ex{font-style:italic;margin-top:12px}
 .notes{margin-top:8px;font-size:16px}
-div.hint{direction:ltr;text-align:left;font-size:15px}</pre></div>
+div.hint{direction:ltr;text-align:left;font-size:15px}
+.cw{overflow-x:auto}
+table.ct{display:inline-table;vertical-align:top;border-collapse:collapse;margin:4px;direction:ltr;font-size:15px}
+table.ct th,table.ct td{border:1px solid #bbb;padding:3px 8px;text-align:center}
+table.ct th{background:#eee;font-weight:normal}
+.nightMode table.ct th{background:#333}
+.ch{direction:ltr;font-weight:bold;margin-top:8px}
+.vh{font-size:17px}</pre></div>
+<p>اگر قبلاً Styling قدیمی را گذاشته‌ای، این متن تازه را جایگزینش کن تا جدول صرف مرتب دیده شود.</p>
 <p>حالا از <code>Options</code> گزینهٔ <code>Add Card Type</code> را بزن و نامش را بگذار <code>Meaning to Latin</code>.</p>
 <p><code>Front Template</code> (کارت دوم):</p><div class="cb"><button type="button" class="cp">کپی</button><pre>{{#Meaning}}
 &lt;div class=&quot;meaning&quot;&gt;{{Meaning}}&lt;/div&gt;
@@ -212,14 +221,14 @@ div.hint{direction:ltr;text-align:left;font-size:15px}</pre></div>
 <div class="g">
 <div class="w"><label>نوع کلمه</label><select id="ft"></select></div>
 <div class="w"><label>کلمه *</label><input id="fl" class="lat" autocomplete="off"><div id="dup"></div></div>
-<div class="w"><label>اطلاعات ضروری کلمه</label>
+<div class="w"><label>اطلاعات ضروری کلمه <span class="lsm">(اگر اطلاعات ضروری کلمه را یاد گرفته‌ای، مطابق مثال، یادداشتشان کن.)</span></label>
 <span class="hint">اسم: puella, puellae, f. &nbsp;|&nbsp; صفت: bonus, bona, bonum &nbsp;|&nbsp; فعل: amō, amāre, amāvī, amātum</span>
-<input id="fdf" class="lat"><div class="rsv"><div class="warn sm" id="edf" hidden></div></div></div>
+<input id="fdf" class="lat"></div>
 <div class="w"><div class="mr"><span></span><label>ترجمهٔ انگلیسی</label><label>ترجمهٔ فارسی</label><span></span></div><div id="lm"></div><button type="button" data-add>+ معنی دیگر</button></div>
 <div class="w"><label>جملۀ نمونه بنویس:</label><textarea id="fex" class="lat"></textarea></div>
 <div class="w"><label>نکات مهم را یادداشت کن:</label><input id="fg" class="lat"></div>
 <details class="w sarf" id="sarf"><summary><span>▾ صرفش کن:</span><span class="mu" id="sw"></span><span class="mu lat" id="stt"></span><span class="sp"></span><button type="button" class="nv lat" data-go="tv-b">[B] Passīvum</button><button type="button" class="nv lat" data-go="tv-a">[A] Āctīvum</button><button type="button" class="p cl" id="sv2">ثبت</button><span class="cl">✕ بستن</span></summary>
-<div id="tbwrap"><div id="tth"><h2 id="ttl"></h2><span class="mu lat" id="tsub"></span></div><div class="bar" id="tbtop"><button type="button" id="ptb"></button><label class="grp" id="grpw"><span id="grpl"></span><input id="tgr" class="lat" autocomplete="off"></label><button type="button" id="tclr">🗑 پاک‌کردن همهٔ صرف‌ها</button><span class="mu" id="tprog"></span><span class="mu" id="dcn"></span></div><div id="tbl"></div></div>
+<div id="tbwrap"><div id="tth"><h2 id="ttl"></h2><span class="mu lat" id="tsub"></span></div><div class="bar" id="tbtop"><button type="button" id="ptb"></button><button type="button" id="tclr">🗑 پاک‌کردن همهٔ صرف‌ها</button><span class="mu" id="tprog"></span><span class="mu" id="dcn"></span></div><div id="tbl"></div></div>
 <label style="margin-top:10px">اگر نکتۀ مهمی وجود دارد، بنویس:</label><textarea id="fc" class="lat"></textarea>
 </details>
 </div>
@@ -243,10 +252,10 @@ div.hint{direction:ltr;text-align:left;font-size:15px}</pre></div>
 
 <div class="card"><div class="bar">
 <button class="p" id="bk">پشتیبان‌گیری (JSON)</button><button id="pick">انتخاب پوشهٔ پشتیبان</button>
-<button id="xa">خروجی Anki</button><button id="xc">خروجی CSV</button>
-<button id="imp">ورود از JSON</button><button id="rst">بازیابی کامل</button>
+<button id="xa">خروجی Anki</button><button id="rst">بازیابی کامل</button>
 <input type="file" id="file" accept=".json" style="display:none">
-</div><div class="mu" style="margin-top:6px" id="note"></div><div id="impres"></div></div>
+</div><div id="abs" class="mu" style="margin-top:8px"></div>
+<div class="mu" style="margin-top:6px" id="note"></div></div>
 </main>
 <div id="pm" hidden><div class="pmb"><h3>نوع ضمیر را انتخاب کن</h3><div id="pml"></div><button type="button" id="pmx">بعداً</button></div></div>
 <div id="msg"></div>
@@ -308,7 +317,6 @@ const leaves=(...L)=>L.reduce((a,l)=>a.flatMap(x=>l.map(([k,h])=>({k:x.k?x.k+'.'
 const PT={pp:'PRONOMINA PERSONALIA',pd:'PRONOMEN DEMONSTRATIVVM (hic; iste; ipse; is; īdem)',pos:'PRONOMINA POSSESSIVA',pi:'PRONOMINA INTERROGATIVA (quis subst. et adi.)',pr:'PRONOMINA RELATIVVM',px:'PRONOMINA INDEFINITA'};
 const TT={v:'VERBVM',n:'NOMINA SVBSTANTIVVM',adj:'NOMINA ADIECTIVVM',num:'NOMINA NVMERALIA',...PT};
 const PAR={n:{c:leaves(SP)},adj:{c:leaves(SP,G3)},num:{c:leaves(SP,G3)},pp:{c:leaves([['1','persōna prīma'],['2','persōna secunda'],['3','persōna tertia']],G3)},pd:{c:leaves(SP,G3)},pos:{c:leaves(SP,P3,G3),split:1},pi:{c:leaves(SP,G3)},pr:{c:leaves(SP,G3)},px:{c:leaves(SP,G3)}};
-const GRP={n:'Dēclīnātiō :',adj:'Dēclīnātiō :'};
 const tidOf=(t,pt)=>(t==='v'||t==='n'||t==='adj'||t==='num')?t:(t==='pron'&&PT[pt]?pt:null);
 function grid(id,cs,drop){
   const H=cs.map(c=>c.h.slice(drop)),L=H[0].length;let hd='';
@@ -349,9 +357,34 @@ function tbLines(w){
   }));
   else PAR[id].c.forEach(c=>{const vals=CASES.map(([ck])=>tb[id+'.'+c.k+'.'+ck]||'');if(vals.some(Boolean))out.push(c.h.join(' ')+': '+vals.map(x=>x||'–').join(', '))});
   if(!out.length)return[];
-  if(w.gr&&GRP[id])out.unshift(GRP[id].replace(' :','')+': '+w.gr);
   out.unshift(TT[id].replace(/ \(.*$/,''));
   return out;
+}
+function tbHtml(w){
+  const id=tidOf(w.t,w.pt),tb=w.tb;if(!id||!tb)return '';let h='';
+  if(id==='v')VT.forEach(([v,vt,parts])=>{
+    let sec='';
+    parts.forEach(([m,mt,sp])=>{
+      let blk='';
+      if(typeof sp==='string')sp.split(' ').forEach(t=>{
+        const vals=['s1','s2','s3','p1','p2','p3'].map(x=>tb[key(v,m,t,x)]||'');if(!vals.some(Boolean))return;
+        blk+='<table class="ct"><tr><th colspan="3">'+TN[t]+'</th></tr><tr><th></th><th>sing.</th><th>plūr.</th></tr>'+[0,1,2].map(i=>'<tr><th>'+(i+1)+'</th><td>'+esc(vals[i]||'–')+'</td><td>'+esc(vals[i+3]||'–')+'</td></tr>').join('')+'</table>';
+      });
+      else{const rows=sp.map(([k,l])=>[l||TN[k]||'',tb[key(v,m,k==='_'?'':k)]||'']).filter(r=>r[1]);if(rows.length)blk='<table class="ct">'+rows.map(r=>'<tr><th>'+esc(r[0])+'</th><td>'+esc(r[1])+'</td></tr>').join('')+'</table>'}
+      if(blk)sec+='<div class="ch">'+mt+'</div><div class="cw">'+blk+'</div>';
+    });
+    if(sec)h+='<div class="ch vh">'+vt+'</div>'+sec;
+  });
+  else{
+    const grd=(cs,drop)=>{
+      const H=cs.map(c=>c.h.slice(drop)),L=H[0].length;let r='';
+      for(let l=1;l<=L;l++){r+='<tr><th></th>';let j=0;while(j<cs.length){let k=j;const pk=H[j].slice(0,l).join('|');while(k+1<cs.length&&H[k+1].slice(0,l).join('|')===pk)k++;r+='<th colspan="'+(k-j+1)+'">'+esc(H[j][l-1])+'</th>';j=k+1}r+='</tr>'}
+      CASES.forEach(([ck,cl])=>{r+='<tr><th>'+cl+'</th>'+cs.map(c=>'<td>'+esc(tb[id+'.'+c.k+'.'+ck]||'–')+'</td>').join('')+'</tr>'});
+      return '<table class="ct">'+r+'</table>';
+    },P=PAR[id];
+    h=P.split?[...new Set(P.c.map(c=>c.h[0]))].map(t=>'<div class="ch">'+esc(t)+'</div><div class="cw">'+grd(P.c.filter(c=>c.h[0]===t),1)+'</div>').join(''):'<div class="cw">'+grd(P.c,0)+'</div>';
+  }
+  return h?'<div class="ch vh">'+TT[id].replace(/ \(.*$/,'')+'</div>'+h:'';
 }
 function side(cur,dir){
   const r=cur.getBoundingClientRect(),cy=r.top+r.height/2,cx=r.left+r.width/2;let best=null,bd=1e9;
@@ -369,17 +402,6 @@ $('#tbl').addEventListener('keydown',e=>{
   e.preventDefault();if(n){n.focus();n.select()}
 });
 $('#tbl').addEventListener('focusin',e=>{if(e.target.classList.contains('tc'))e.target.select()});
-const DFMSG='طبق مثال، اگر اطلاعات ضروری کلمه را بلدی بنویس.';
-const GEN=/^(m|f|n|c)\.?(\s*\/\s*(m|f|n|c)\.?)?(\s+pl\.?)?$/i;
-function dfCheck(t,v){
-  if(!['n','adj','v'].includes(t))return '';
-  const p=v.split(',').map(x=>x.trim());
-  const bad=!v.trim()||p.some(x=>!x||x.startsWith('-'))||(t==='n'&&(p.length<3||!GEN.test(p[p.length-1])))||(t==='adj'&&(p.length<2||p.length>3))||(t==='v'&&(p.length<3||p.length>4));
-  return bad?DFMSG:'';
-}
-let dfT=false;
-function chkDf(){const v=$('#fdf').value,m=(v.trim()||dfT)?dfCheck($('#ft').value,v):'';$('#edf').hidden=!m;$('#edf').textContent=m}
-$('#fdf').addEventListener('input',()=>{$('#edf').hidden=true});$('#fdf').addEventListener('blur',()=>{dfT=true;chkDf()});$('#ft').addEventListener('input',()=>{if(dfT)chkDf()});
 function syncType(){
   const t=$('#ft').value,id=tidOf(t,curPt),isP=t==='pron';
   if(id!==curT)showTable(id);
@@ -389,7 +411,6 @@ function syncType(){
   const tt=id?TT[id]:'',m=tt.match(/^(.*?)( \((.*)\))?$/);
   $('#ttl').textContent=id?m[1]:'';$('#tsub').textContent=id&&m[3]?'('+m[3]+')':'';$('#stt').textContent=id?m[1]:'';
   $('#ptb').style.display=isP?'':'none';$('#ptb').textContent=id?'نوع ضمیر: '+m[1]+'  (تغییر)':'نوع ضمیر را انتخاب کن';
-  $('#grpw').style.display=GRP[id]?'':'none';$('#grpl').textContent=GRP[id]||'';
   $('#tclr').style.display=id?'':'none';
   prevType=t;
 }
@@ -424,7 +445,7 @@ async function idbAll(){const d=await idb();return new Promise((res,rej)=>{const
 const idbPut=(k,v)=>tx('w','readwrite',s=>s.put(v,k));
 const metaGet=k=>tx('meta','readonly',s=>s.get(k)),metaPut=(k,v)=>tx('meta','readwrite',s=>s.put(v,k));
 const enqueue=f=>{q=q.then(f).catch(e=>msg('خطا در ذخیره: '+((e&&(e.name||e.message))||e),1))};
-const persist=k=>idbPut(k,B[k]);
+const persist=k=>idbPut(k,B[k]).then(()=>schedAuto());
 
 /* data */
 function fix(w){
@@ -476,10 +497,10 @@ function checkDup(){
   $('#save').textContent=hits.length?'ثبت (تکراری)':(editing?'ذخیرهٔ ویرایش':'ثبت');
 }
 ['input','change','blur'].forEach(ev=>$('#fl').addEventListener(ev,checkDup));
-function clearForm(){F.forEach(k=>{if(k!=='t')$('#f'+k).value=''});setM();curPt='';syncType();setTb();$('#tgr').value='';$('#sarf').open=false;$('#sw').textContent='';$('#dup').innerHTML='';editing=null;$('#cancel').style.display='none';$('#mode').textContent='';$('#save').textContent='ثبت';dfT=false;chkDf();fresh=false;$('#dcn').textContent=''}
+function clearForm(){F.forEach(k=>{if(k!=='t')$('#f'+k).value=''});setM();curPt='';syncType();setTb();$('#sarf').open=false;$('#sw').textContent='';$('#dup').innerHTML='';editing=null;$('#cancel').style.display='none';$('#mode').textContent='';$('#save').textContent='ثبت';fresh=false;$('#dcn').textContent=''}
 function startEdit(id){
   const p=find(id);if(!p)return;const w=B[p[0]][p[1]];
-  F.forEach(k=>$('#f'+k).value=w[k]||'');setM(w.m);curPt=w.pt||'';syncType();setTb(w.tb);$('#tgr').value=w.gr||'';dfT=true;chkDf();fresh=false;$('#dcn').textContent='دفعات صرف کامل: '+(w.dc||0);$('#sw').textContent=w.l;
+  F.forEach(k=>$('#f'+k).value=w[k]||'');setM(w.m);curPt=w.pt||'';syncType();setTb(w.tb);fresh=false;$('#dcn').textContent='دفعات صرف کامل: '+(w.dc||0);$('#sw').textContent=w.l;
   $('#sarf').open=!!w.c&&!tidOf(w.t,w.pt);
   $('#hbk').value=w.bk||'';$('#hls').value=w.ls||'';$('#hpg').value=w.pg||'';chk();
   editing=id;$('#cancel').style.display='';$('#mode').textContent='در حال ویرایش';checkDup();
@@ -499,13 +520,13 @@ function save(){
   w.m=getM();
   const tid=tidOf(w.t,curPt);
   if(w.t==='pron'&&curPt)w.pt=curPt;else delete w.pt;
-  if(tid){const tb=getTb();if(Object.keys(tb).length)w.tb=tb;else delete w.tb;if(GRP[tid]){const gr=$('#tgr').value.trim();if(gr)w.gr=gr;else delete w.gr}const st=tbStat(),full=st.n>0&&st.f===st.n;if(full&&(fresh||!w.td))w.dc=(w.dc||0)+1;w.td=full}
+  if(tid){const tb=getTb();if(Object.keys(tb).length)w.tb=tb;else delete w.tb;delete w.gr;const st=tbStat(),full=st.n>0&&st.f===st.n;if(full&&(fresh||!w.td))w.dc=(w.dc||0)+1;w.td=full}
   delete w.na;
   w.bk=$('#hbk').value.trim();w.ls=$('#hls').value.trim();w.pg=$('#hpg').value.trim();
   if(!w.l){$('#sarf').open=false;msg('کلمه را بنویس');$('#fl').focus();return}
   const d=(idx[norm(w.l)]||[]).filter(x=>x.id!==w.id);
   if(d.length&&!confirm('«'+w.l+'» قبلاً ثبت شده است:\n'+d.map(loc).join('\n')+'\n\nباز هم ثبت شود؟'))return;
-  const gm=tid&&GRP[tid]&&!w.gr?'گروه صرفی ('+GRP[tid].replace(' :','')+') را ننوشته‌ای.':(w.t==='pron'&&!curPt?'نوع ضمیر را مشخص نکرده‌ای.':'');const dm=[dfCheck(w.t,w.df),gm].filter(Boolean).join(' ');let k;if(p){B[p[0]][p[1]]=w;k=p[0]}else k=place(w);
+  const dm=(w.t==='pron'&&!curPt)?'نوع ضمیر را مشخص نکرده‌ای.':'';let k;if(p){B[p[0]][p[1]]=w;k=p[0]}else k=place(w);
   clearForm();rebuild();enqueue(()=>persist(k));msg(dm?'ثبت شد، ولی ⚠️ '+dm:'ثبت شد ✓',!!dm);$('#fl').focus();
 }
 $('#save').onclick=save;
@@ -520,50 +541,100 @@ function note(){
   $('#rem').hidden=!(all.length&&(days===null||days>7));
   $('#remt').textContent=days===null?'هنوز پشتیبان نگرفته‌ای.':'آخرین پشتیبان '+days+' روز پیش بوده.';
 }
+/* automatic backup into the chosen (Google Drive) folder */
+let at=null,autoCount=null,autoBusy=false;
+const getDir=async()=>window.__testDir||metaGet('dir');
+const schedAuto=()=>{clearTimeout(at);at=setTimeout(()=>autoBackup(false),3000)};
+function setAbs(s,a,b){
+  const e=$('#abs');e.textContent='';e.className=(s==='ok'||s==='off'||s==='na')?'mu':'warn';
+  e.append({
+    na:'پشتیبان خودکار فقط روی ویندوز با Chrome یا Edge کار می‌کند. روی این دستگاه، «پشتیبان‌گیری» را دستی بزن.',
+    off:'پشتیبان خودکار خاموش است. برای روشن‌شدن، «انتخاب پوشهٔ پشتیبان» را بزن و پوشهٔ Google Drive را انتخاب کن.',
+    ok:'✅ پشتیبان خودکار روشن است (پوشهٔ '+a+'). بعد از هر «ثبت»، چند ثانیه بعد فایل ساخته می‌شود.',
+    perm:'⚠️ پشتیبان خودکار برای ادامه اجازهٔ تو را لازم دارد.',
+    shrink:'⚠️ تعداد کلمه‌ها ('+b+') از آخرین پشتیبان ('+a+') خیلی کمتر است. برای اینکه فایل قبلی از دست نرود، پشتیبان خودکار متوقف شد. اگر کلمه‌هایت گم شده‌اند، «بازیابی کامل» را بزن و فایل latin-vocab-latest.json را انتخاب کن. اگر عمداً کلمه‌ها را حذف کرده‌ای، «پشتیبان‌گیری» را دستی بزن.',
+    err:'⚠️ پشتیبان خودکار انجام نشد. «پشتیبان‌گیری» را دستی بزن.'}[s]);
+  if(s==='perm'){const b2=document.createElement('button');b2.type='button';b2.className='p';b2.textContent='اجازه می‌دهم';b2.onclick=()=>autoBackup(true);e.append(b2)}
+}
+async function refreshAuto(){
+  if(!window.showDirectoryPicker&&!window.__testDir){setAbs('na');return}
+  let h=null;try{h=await getDir()}catch(e){}
+  if(!h){setAbs('off');return}
+  try{setAbs(await h.queryPermission({mode:'readwrite'})==='granted'?'ok':'perm',h.name)}catch(e){setAbs('err')}
+}
+async function autoBackup(force){
+  if(autoBusy||!ready)return false;
+  let h=null;try{h=await getDir()}catch(e){}
+  if(!h)return false;
+  autoBusy=true;
+  try{
+    const o={mode:'readwrite'};
+    if(await h.queryPermission(o)!=='granted'&&(!force||await h.requestPermission(o)!=='granted')){setAbs('perm');return false}
+    const n=all.length;
+    if(!n){setAbs('ok',h.name);return false}
+    if(autoCount===null){try{autoCount=JSON.parse(await(await(await h.getFileHandle('latin-vocab-latest.json')).getFile()).text()).length}catch(e){autoCount=0}}
+    if(n<autoCount-Math.max(3,Math.floor(autoCount*.05))){
+      if(!force){setAbs('shrink',autoCount,n);return false}
+      if(!confirm('در پوشهٔ پشتیبان فایلی با '+autoCount+' کلمه هست، ولی فهرست فعلی فقط '+n+' کلمه دارد. با ادامه‌دادن، آن فایل عوض می‌شود و کلمه‌های بیشتر از آن از بین می‌روند. مطمئنی؟'))return false;
+    }
+    const text=JSON.stringify(all);
+    for(const name of ['latin-vocab-latest.json',FNP+stamp()+'.json']){const w=await(await h.getFileHandle(name,{create:true})).createWritable();await w.write(text);await w.close()}
+    autoCount=n;
+    const names=[];for await(const [k] of h.entries())if(/^latin-vocab-\d{4}-\d{2}-\d{2}\.json$/.test(k))names.push(k);
+    names.sort().slice(0,-7).forEach(k=>h.removeEntry(k).catch(()=>{}));
+    lsSet('backup',stamp());note();setAbs('ok',h.name);return true;
+  }catch(e){setAbs('err');return false}
+  finally{autoBusy=false}
+}
 async function backup(){
-  const name=FNP+stamp()+'.json',text=JSON.stringify(all);let where='پوشهٔ دانلودها',ok=false;
-  try{const h=await metaGet('dir');if(h){const o={mode:'readwrite'};if(await h.queryPermission(o)!=='granted'&&await h.requestPermission(o)!=='granted')throw 0;const w=await(await h.getFileHandle(name,{create:true})).createWritable();await w.write(text);await w.close();ok=true;where='پوشهٔ '+h.name}}catch(e){}
-  if(!ok)dl(name,text,'application/json');
-  lsSet('backup',stamp());note();msg('پشتیبان ذخیره شد ('+where+')');
+  if(!all.length){msg('فهرست خالی است؛ چیزی برای پشتیبان‌گیری نیست.',1);return}
+  if(await autoBackup(true)){msg('پشتیبان ذخیره شد ✓');return}
+  const h=await getDir().catch(()=>null);if(h)return;
+  dl(FNP+stamp()+'.json',JSON.stringify(all),'application/json');lsSet('backup',stamp());note();msg('پشتیبان در پوشهٔ دانلودها ذخیره شد');
 }
 $('#bk').onclick=backup;$('#rb').onclick=backup;
-$('#pick').onclick=async()=>{try{const h=await showDirectoryPicker({mode:'readwrite',id:'lvbackup'});await metaPut('dir',h);msg('پوشهٔ '+h.name+' انتخاب شد ✓')}catch(e){}};
-$('#xc').onclick=()=>{
-  const cols=['bk','ls','pg','l','df','t','en','fa','g','ex','c'],cell=v=>'"'+String(v||'').replace(/"/g,'""')+'"';
-  const jm=(w,k)=>w.m.map((x,i)=>x[k]?(w.m.length>1?(i+1)+') ':'')+x[k]:'').filter(Boolean).join(' ; ');
-  dl(FNP+stamp()+'.csv','\ufeff'+cols.join(',')+'\n'+all.map(w=>cols.map(c=>cell(c==='en'||c==='fa'?jm(w,c):w[c])).join(',')).join('\n'),'text/csv');
-};
+$('#pick').onclick=async()=>{try{const h=await showDirectoryPicker({mode:'readwrite',id:'lvbackup'});await metaPut('dir',h);autoCount=null;msg('پوشهٔ '+h.name+' انتخاب شد ✓');await autoBackup(false)}catch(e){}};
 $('#xa').onclick=()=>{
   const ts=s=>String(s).replace(/\t/g,' '),br=s=>esc(s).replace(/\n/g,'<br>');
   const tag=w=>[w.bk&&w.bk.replace(/\s+/g,'-'),w.ls&&'L'+w.ls.padStart(3,'0'),w.pg&&'P'+w.pg.padStart(3,'0')].filter(Boolean).join('::');
   const mA=w=>w.m.map((x,i)=>`<div>${w.m.length>1?(i+1)+') ':''}${esc(x.fa)}${x.fa&&x.en?' — ':''}${esc(x.en)}</div>`).join('');
-  const cj=w=>tbLines(w).map(l=>`<div>${esc(l)}</div>`).join('')+(w.c?`<div>${br(w.c)}</div>`:'');
+  const cj=w=>tbHtml(w)+(w.c?`<div>${br(w.c)}</div>`:'');
   const rows=all.map(w=>[w.id,esc(w.l),esc(w.df),esc(tn[w.t]||''),mA(w),br(w.ex),br(w.g),cj(w),tag(w)].map(ts).join('\t'));
   dl('latin-anki-'+stamp()+'.txt',['#separator:tab','#html:true','#guid column:1','#notetype:LinguaLatina','#deck:Lingua Latina','#tags column:9',...rows].join('\n'),'text/plain');
   msg('فایل Anki ساخته شد');
 };
-$('#imp').onclick=()=>{fm='imp';$('#file').click()};
-$('#rst').onclick=()=>{fm='rst';$('#file').click()};
+$('#rst').onclick=()=>$('#file').click();
 $('#file').onchange=async e=>{
-  const f=e.target.files[0];e.target.value='';if(!f||!ready)return;$('#impres').innerHTML='';
+  const f=e.target.files[0];e.target.value='';if(!f||!ready)return;
   try{
     const list=JSON.parse(await f.text());if(!Array.isArray(list))throw 0;
-    if(fm==='rst'){
-      if(!confirm('همهٔ '+all.length+' کلمهٔ فعلی حذف و با '+list.length+' کلمهٔ این فایل جایگزین شود؟ (بهتر است اول از فهرست فعلی پشتیبان بگیری.)'))return;
-      B={};list.forEach(w0=>{if(w0&&w0.l){const w=fix({...w0});if(!w.id)w.id=uid();place(w)}});
-      rebuild();enqueue(async()=>{await tx('w','readwrite',s=>s.clear());for(const k of Object.keys(B))await idbPut(k,B[k])});msg('بازیابی شد: '+all.length+' کلمه');return;
-    }
-    const seen=new Set(Object.keys(idx)),ids=new Set(all.map(w=>w.id)),touched=new Set(),skipped=[];let n=0;
-    for(const w0 of list){
-      if(!w0||!w0.l)continue;const w=fix({...w0});if(!w.id)w.id=uid();
-      if(ids.has(w.id)||seen.has(norm(w.l))){skipped.push(w.l);continue}
-      ids.add(w.id);seen.add(norm(w.l));touched.add(place(w));n++;
-    }
-    rebuild();touched.forEach(k=>enqueue(()=>persist(k)));msg(n+' کلمه وارد شد');
-    if(skipped.length)$('#impres').innerHTML=`<div class="warn">${skipped.length} کلمه چون از قبل ثبت شده بودند وارد نشدند: <span class="l2">${esc(skipped.join('، '))}</span></div>`;
+    if(!confirm('همهٔ '+all.length+' کلمهٔ فعلی حذف و با '+list.length+' کلمهٔ این فایل جایگزین شود؟ (بهتر است اول از فهرست فعلی پشتیبان بگیری.)'))return;
+    B={};list.forEach(w0=>{if(w0&&w0.l){const w=fix({...w0});if(!w.id)w.id=uid();place(w)}});
+    rebuild();enqueue(async()=>{await tx('w','readwrite',s=>s.clear());for(const k of Object.keys(B))await idbPut(k,B[k]);schedAuto()});msg('بازیابی شد: '+all.length+' کلمه');
   }catch(x){msg('فایل معتبر نیست',1)}
 };
 
+/* arrow keys between fields on the main page */
+const navStops=()=>$$('.sticky input,#form input,#form textarea,#form select,#save,#form [data-add],#sarf>summary').filter(e=>e.offsetParent!==null&&!e.disabled&&e.type!=='file'&&!(e.closest('#sarf')&&e.tagName!=='SUMMARY'));
+function nearest(cur,stops,key){
+  const r=cur.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;let best=null,bs=1e9;
+  stops.forEach(s=>{if(s===cur)return;const b=s.getBoundingClientRect(),x=b.left+b.width/2,y=b.top+b.height/2;let sc;
+    if(key==='ArrowDown'||key==='ArrowUp'){const dy=(y-cy)*(key==='ArrowDown'?1:-1);if(dy<4)return;const ov=Math.min(b.right,r.right)-Math.max(b.left,r.left);sc=dy+(ov>0?0:500+Math.abs(x-cx)/10)}
+    else{const dx=(x-cx)*(key==='ArrowRight'?1:-1);if(dx<=0||Math.abs(y-cy)>Math.max(r.height,b.height)/2)return;sc=dx}
+    if(sc<bs){bs=sc;best=s}});
+  return best;
+}
+document.addEventListener('keydown',e=>{
+  if(!['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;
+  const el=e.target;if(!el||el.tagName==='SELECT'||el.closest('#tbl,#pm')||(el.closest('#sarf')&&el.tagName!=='SUMMARY'))return;
+  const stops=navStops();if(!stops.includes(el))return;
+  const T=el.tagName==='TEXTAREA',I=el.tagName==='INPUT',v=e.key==='ArrowUp'||e.key==='ArrowDown';
+  if(T&&e.key==='ArrowUp'&&el.selectionStart>0&&el.value.lastIndexOf('\n',el.selectionStart-1)!==-1)return;
+  if(T&&e.key==='ArrowDown'&&el.value.indexOf('\n',el.selectionEnd)!==-1)return;
+  if(!v&&(I||T)&&!(el.selectionStart===0&&el.selectionEnd===el.value.length))return;
+  const n=nearest(el,stops,e.key);if(!n)return;
+  e.preventDefault();n.focus();if(n.tagName==='INPUT'||n.tagName==='TEXTAREA')n.select();n.scrollIntoView({block:'nearest'});
+});
 /* app updates + install */
 const VER=(document.querySelector('meta[name="app-version"]')||{}).content;
 async function chkUpd(){
@@ -589,7 +660,7 @@ window.addEventListener('appinstalled',()=>{$('#inst').hidden=true});
 (async()=>{
   try{B=await idbAll();Object.values(B).forEach(a=>a.forEach(fix));ready=true;rebuild();try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}}
   catch(e){msg('ذخیره‌سازی در این مرورگر در دسترس نیست',1)}
-  if(!window.showDirectoryPicker)$('#pick').style.display='none';
+  if(!window.showDirectoryPicker)$('#pick').style.display='none';refreshAuto();
   if(!lsGet('help')){$('#help').open=true;lsSet('help','1')}
 })();
 </script>
