@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>کلمات و اصطلاحاتِ مجموعۀ لینگوئا لاتینا</title>
-<meta name="app-version" content="2223d42659">
+<meta name="app-version" content="340dafb632">
 <meta name="theme-color" content="#8a3b2e">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -56,6 +56,8 @@ button.p{background:var(--ac);color:var(--act);border-color:var(--ac);font-weigh
 #abs button{margin-inline-start:8px}
 .lsm{font-size:.72rem;color:var(--mu);font-weight:400;margin-inline-start:6px}
 #upd{background:var(--ac);color:var(--act);border-radius:10px;padding:8px 12px;margin-bottom:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}#upd[hidden],#inst[hidden]{display:none}#upd button{background:var(--act);color:var(--ac);border-color:var(--act);font-weight:700}
+.stat{margin:-6px 0 12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sub{border:1px solid var(--bd);border-radius:10px;padding:8px 10px;margin:8px 0}
 #badge{font-size:.75rem;border:1px solid var(--bd);border-radius:99px;padding:1px 8px;color:var(--mu)}
 #msg{position:fixed;inset:auto 12px 12px;background:var(--ac);color:var(--act);padding:8px 12px;border-radius:8px;display:none;z-index:30}
 summary{cursor:pointer;font-weight:700;padding:4px 0}
@@ -77,8 +79,8 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 .tc{width:var(--cw);min-width:0;font-size:.9rem}
 .pw{overflow-x:auto;padding-bottom:6px}
 .pg{display:grid;gap:4px;align-items:center;width:max-content}
-.ph{text-align:center;font-size:.8rem;color:var(--mu);border-bottom:1px solid var(--bd);padding:2px}
-.pl{position:sticky;left:0;z-index:1;background:var(--bg);font-size:.85rem;color:var(--mu);padding:0 4px}
+.ph{text-align:center;font-size:1rem;font-weight:600;color:var(--tx);border-bottom:1px solid var(--bd);padding:2px}
+.pl{position:sticky;left:0;z-index:1;background:var(--bg);font-size:1rem;font-weight:600;color:var(--tx);padding:0 4px}
 #ttl{margin:10px 0 0;direction:ltr;font-size:1.15rem}#tth{margin-bottom:4px}
 .grp{display:inline-flex;gap:6px;align-items:center;direction:ltr;font-weight:700}.grp input{width:8em}
 #pm{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:12px}
@@ -87,24 +89,26 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 .na{font-size:.8rem;font-weight:400;margin-inline-start:14px;display:inline-flex;gap:4px;align-items:center}.na input{width:auto}
 #tbl input:disabled{opacity:.35}
 #tbl h3{margin:16px 0 2px;scroll-margin-top:64px}
-#tbl h4{margin:10px 0 4px;font-size:.95rem}
+#tbl h4{margin:12px 0 4px;font-size:1.1rem}
 .cards{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
 .tcard{display:block;background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:8px}
-.tt{font-weight:700;margin-bottom:4px}
+.tt{font-weight:700;font-size:1.1rem;margin-bottom:4px}
 .tg2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.tl{font-size:.8rem;color:var(--mu);display:block}
+.tl{font-size:1rem;font-weight:600;color:var(--tx);display:block}
 .tr1{display:flex;gap:4px;align-items:center;margin-bottom:3px}
-.tr1 b{width:1em;text-align:center;font-weight:400;color:var(--mu)}
+.tr1 b{width:1.2em;text-align:center;font-weight:600;font-size:1rem;color:var(--tx)}
 </style>
 </head>
 <body>
 <main>
-<h1>📜 کلمات و اصطلاحاتِ مجموعۀ لینگوئا لاتینا <span class="mu" id="cnt"></span> <span id="badge">💾 محلی</span> <button type="button" id="inst" hidden>📲 نصب برنامه</button></h1>
+<h1>📜 کلمات و اصطلاحاتِ مجموعۀ لینگوئا لاتینا</h1>
+<div class="stat"><span class="mu" id="cnt"></span> <span id="badge">💾 ذخیره‌سازی محلی</span> <button type="button" id="inst" hidden>📲 نصب برنامه</button></div>
 
-<div id="upd" hidden>🔄 نسخهٔ جدید برنامه آماده است. <button type="button" id="updb">بروزرسانی</button><span style="font-size:.85rem">کلمه‌هایی که ثبت کرده‌ای از بین نمی‌روند.</span></div>
+<div id="upd" hidden>🔄 نسخهٔ جدید برنامه آماده است. <button type="button" id="updb">به‌روزرسانی</button><span style="font-size:.85rem">کلمه‌هایی که ثبت کرده‌ای از بین نمی‌روند.</span></div>
 <div class="warn" id="rem" hidden>⚠️ <span id="remt"></span><button class="p" id="rb">پشتیبان‌گیری</button></div>
 
-<details class="card hp" id="help"><summary>📖 راهنمای کلی</summary>
+<details class="card" id="helpall"><summary>📚 راهنما</summary>
+<details class="sub hp" id="help"><summary>📖 راهنمای کلی</summary>
 <h4>اول از همه: پشتیبان‌گیری</h4>
 <p>کلمه‌هایت فقط داخل همین مرورگر و روی همین دستگاه می‌مانند. اگر اطلاعات مرورگر پاک شود، همه‌چیز از بین می‌رود. برای همین هفته‌ای یک بار این کار را بکن:</p>
 <ol><li>پایین صفحه دکمهٔ «پشتیبان‌گیری (JSON)» را بزن.</li><li>یک فایل ساخته می‌شود که همهٔ کلمه‌هایت داخلش است.</li><li>آن فایل را جای امن بگذار، مثلاً گوگل درایو.</li></ol>
@@ -125,7 +129,7 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 <p>در بخش فیلترها می‌توانی کلمه‌ها را بر اساس عنوان کتاب، شمارۀ فصل یا درس، شمارۀ صفحه، نوع کلمه و وضعیت صرف ببینی. همچنین می‌توانی کلمه‌ها را بر مبنای اینکه چند بار صرف شده‌اند ببینی.</p>
 <p><b>خیالت راحت باشد:</b> اگر بعد از هر بار وارد کردن کلمه‌ها «پشتیبان‌گیری» را بزنی، هیچ نگرانی‌ای برای از دست رفتن کلمه‌هایت نیست. اگر هر اتفاقی افتاد، با «بازیابی کامل» همه‌چیز برمی‌گردد.</p>
 </details>
-<details class="card hp" id="hdrive"><summary>☁️ پشتیبان خودکار در Google Drive</summary>
+<details class="sub hp" id="hdrive"><summary>☁️ پشتیبان خودکار در گوگل درایو (Google Drive)</summary>
 <p>این کار فقط روی <b>ویندوز</b> و با <b>Chrome یا Edge</b> کار می‌کند. روی گوشی کار نمی‌کند.</p>
 <ol>
 <li>برنامهٔ <b>Google Drive for desktop</b> را نصب کن. اگر قبلاً نصب است، این قدم را رد کن. با حساب Google خودت واردش شو.</li>
@@ -142,8 +146,17 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 <p><b>اگر نوشت «پوشهٔ دانلودها»:</b> یعنی پوشه انتخاب نشده یا اجازه داده نشده است. قدم ۴ تا ۶ را دوباره انجام بده.</p>
 <p>همین روش با پوشهٔ OneDrive و Dropbox هم کار می‌کند.</p>
 </details>
-<details class="card hp" id="hanki"><summary>🃏 کارت‌های Anki</summary>
-<p>برنامهٔ ما یک فایل می‌سازد. Anki باید بداند هر بخش فایل را کجای کارت بگذارد. پس یک بار «قالب کارت» را در Anki می‌سازیم. بعد از آن، هر بار فقط فایل را وارد می‌کنی.</p>
+<details class="sub hp" id="hanki"><summary>🃏 کارت‌های اَنکی (Anki)</summary>
+<p>اَنکی (Anki) یک برنامهٔ رایگان برای مرور کارت‌های کلمه است که هر کارت را درست وقتی نشانت می‌دهد که نزدیک است فراموشش کنی.</p>
+<p><b>اَنکی فقط برای وقتی است که بخواهی کلمه‌ها و اصطلاحات را روی گوشی یا روی ویندوز مرور کنی.</b> اگر فقط ثبت می‌کنی، لازم نیست سراغش بروی.</p>
+<p>چرا ارزش دارد؟</p>
+<ul>
+<li>کارت‌هایی که سخت‌اند را بیشتر و کارت‌هایی که آسان‌اند را کمتر نشانت می‌دهد. پس وقتت را فقط روی چیزهایی می‌گذاری که هنوز یاد نگرفته‌ای.</li>
+<li>هر روز چند دقیقه مرور کافی است. در صف یا در راه هم می‌شود.</li>
+<li>روی گوشی و ویندوز کار می‌کند و کارت‌هایت بین هر دو همگام می‌شوند.</li>
+<li>هر کلمه دو کارت دارد: یکی لاتین ← معنی، و یکی معنی ← لاتین. هم از لاتین معنی را به یاد می‌آوری، هم از معنی لاتین را.</li>
+<li>چون عنوان کتاب و فصل و صفحه روی کارت‌ها برچسب می‌شود، می‌توانی فقط یک فصل را مرور کنی.</li></ul>
+<p>برنامهٔ ما یک فایل می‌سازد. اَنکی باید بداند هر بخش فایل را کجای کارت بگذارد. پس یک بار «قالب کارت» را در اَنکی می‌سازیم. بعد از آن، هر بار فقط فایل را وارد می‌کنی.</p>
 <h4>قدم صفر: نصب</h4>
 <ol><li>Anki را از سایت رسمی‌اش روی ویندوز نصب کن (رایگان است).</li>
 <li>روی گوشی اندروید، <code>AnkiDroid</code> را از Google Play نصب کن (رایگان است).</li>
@@ -209,8 +222,9 @@ table.ct th{background:#eee;font-weight:normal}
 <p>در Anki روی کامپیوتر <code>Sync</code> را بزن. بعد در AnkiDroid هم <code>Sync</code> را بزن. کارت‌هایت روی گوشی می‌آیند.</p>
 <p>یادت باشد: اگر روی گوشی چیزی را در کارت عوض کنی، فقط در Anki عوض می‌شود. در این برنامه عوض نمی‌شود. اگر اشتباهی دیدی، آن را در این برنامه درست کن و دوباره خروجی بگیر.</p>
 </details>
+</details>
 
-<div class="card sticky"><div class="mu" style="margin-bottom:6px">📌 این سه کادر بعد از ثبت هر کلمه پاک نمی‌شوند.</div>
+<div class="card sticky"><div class="mu" style="margin-bottom:6px">📌 ورودی‌های این سه کادر تا زمانی که خودت تغییرشان ندهی، ثابت می‌مانند.</div>
 <div class="g">
 <div><label>عنوان کتاب (بدون فاصله)</label><input id="hbk" class="lat"><div class="warn" id="ebk" hidden></div></div>
 <div><label>شمارۀ فصل یا درس (فقط عدد)</label><input id="hls" class="lat" inputmode="numeric"><div class="warn" id="els" hidden></div></div>
@@ -269,6 +283,7 @@ const declined=w=>Object.keys(w.tb||{}).length>0||(!tidOf(w.t,w.pt)&&!!w.c);
 const TN={pr:'praesēns',im:'imperfectum',fu:'futūrum',pf:'perfectum',pq:'plūsquamperfectum',fp:'futūrum perfectum'};
 const VT=[['a','[A] Āctīvum',[['inf','Īnfīnītīvus',[['pr'],['pf'],['fu']]],['imp','Imperātīvus',[['s','sing.'],['p','plūr.']]],['ind','Indicātīvus','pr im fu pf pq fp'],['con','Coniūnctīvus','pr im pf pq'],['par','Participium',[['pr'],['fu']]],['sup','Supīna',[['_','']]]]],
 ['b','[B] Passīvum',[['inf','Īnfīnītīvus',[['pr'],['pf'],['fu']]],['ind','Indicātīvus','pr im fu pf pq fp'],['con','Coniūnctīvus','pr im pf pq'],['par','Participium',[['pf']]],['ger','Gerundīvum',[['_','']]]]]];
+const fa=n=>String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
 const norm=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const arr=v=>Array.isArray(v)?v:(v?[String(v)]:[]);
@@ -323,7 +338,7 @@ function grid(id,cs,drop){
   for(let r=1;r<=L;r++){let j=0;while(j<cs.length){let k=j;const pk=H[j].slice(0,r).join('|');while(k+1<cs.length&&H[k+1].slice(0,r).join('|')===pk)k++;hd+=`<div class="ph" style="grid-row:${r};grid-column:${j+2}/span ${k-j+1}">${esc(H[j][r-1])}</div>`;j=k+1}}
   let body=CASES.map(([ck,cl],i)=>`<div class="pl" style="grid-row:${L+i+1};grid-column:1">${cl}</div>`).join('');
   cs.forEach((c,j)=>CASES.forEach(([ck],i)=>{body+=`<input class="tc lat" data-k="${id}.${c.k}.${ck}" style="grid-row:${L+i+1};grid-column:${j+2}" autocomplete="off" spellcheck="false">`}));
-  return `<div class="pw"><div class="pg" style="grid-template-columns:3.2em repeat(${cs.length},var(--cw))">${hd}${body}</div></div>`;
+  return `<div class="pw"><div class="pg" style="grid-template-columns:3.8em repeat(${cs.length},var(--cw))">${hd}${body}</div></div>`;
 }
 function buildVerb(){
   const inp=k=>`<input class="tc lat" data-k="${k}" autocomplete="off" spellcheck="false">`;
@@ -457,7 +472,7 @@ function fix(w){
 function rebuild(){
   all=Object.keys(B).sort().flatMap(k=>B[k]);
   idx={};all.forEach(w=>{(idx[norm(w.l)]=idx[norm(w.l)]||[]).push(w)});
-  $('#cnt').textContent='('+all.length+' کلمه)';
+  $('#cnt').textContent='('+fa(all.length)+' کلمه)';
   cascade();note();
 }
 function fillOpts(sel,vals){const cur=sel.value;sel.innerHTML='<option value="">همه</option>'+vals.map(v=>`<option>${esc(v)}</option>`).join('');sel.value=vals.includes(cur)?cur:''}
@@ -661,7 +676,7 @@ window.addEventListener('appinstalled',()=>{$('#inst').hidden=true});
   try{B=await idbAll();Object.values(B).forEach(a=>a.forEach(fix));ready=true;rebuild();try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}}
   catch(e){msg('ذخیره‌سازی در این مرورگر در دسترس نیست',1)}
   if(!window.showDirectoryPicker)$('#pick').style.display='none';refreshAuto();
-  if(!lsGet('help')){$('#help').open=true;lsSet('help','1')}
+  if(!lsGet('help')){$('#helpall').open=true;$('#help').open=true;lsSet('help','1')}
 })();
 </script>
 </body>
