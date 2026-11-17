@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>کلمات و اصطلاحاتِ مجموعۀ لینگوئا لاتینا</title>
-<meta name="app-version" content="340dafb632">
+<meta name="app-version" content="dff59e96d1">
 <meta name="theme-color" content="#8a3b2e">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -25,7 +25,7 @@ h1{font-size:1.2rem;margin:4px 0 10px}
 .card{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:12px;margin-bottom:12px}
 .g{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
 label{display:block;font-size:.85rem}
-.hint{display:block;font-size:.75rem;color:var(--mu);direction:ltr;text-align:left;margin-bottom:2px}
+.hint{display:block;font-size:.9rem;color:var(--mu);direction:ltr;text-align:left;margin-bottom:2px}
 input,select,textarea,button{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:7px 9px;width:100%}
 textarea{min-height:60px;resize:vertical}
 .lat{direction:ltr;text-align:left}
@@ -62,6 +62,7 @@ button.p{background:var(--ac);color:var(--act);border-color:var(--ac);font-weigh
 #msg{position:fixed;inset:auto 12px 12px;background:var(--ac);color:var(--act);padding:8px 12px;border-radius:8px;display:none;z-index:30}
 summary{cursor:pointer;font-weight:700;padding:4px 0}
 .hp ul,.hp ol{margin:6px 0;padding-inline-start:22px}.hp li{margin-bottom:5px}.hp h4{margin:14px 0 4px;font-size:1rem}.hp p{margin:6px 0}
+.hp b.dots{font-size:1.3em;padding:0 3px}
 .hp code{direction:ltr;unicode-bidi:embed;background:var(--bg);border-radius:4px;padding:0 4px;font-size:.92em}
 .cb{position:relative;margin:6px 0}.cb pre{margin:0;padding:8px 8px 8px 60px;background:var(--bg);border:1px solid var(--bd);border-radius:8px;overflow-x:auto;direction:ltr;text-align:left;font:13px/1.5 ui-monospace,Consolas,monospace;white-space:pre}
 .cb button{position:absolute;top:4px;left:4px;padding:2px 8px;font-size:.8rem}
@@ -82,6 +83,8 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 .ph{text-align:center;font-size:1rem;font-weight:600;color:var(--tx);border-bottom:1px solid var(--bd);padding:2px}
 .pl{position:sticky;left:0;z-index:1;background:var(--bg);font-size:1rem;font-weight:600;color:var(--tx);padding:0 4px}
 #ttl{margin:10px 0 0;direction:ltr;font-size:1.15rem}#tth{margin-bottom:4px}
+.plus{font-size:1.5em;line-height:1;vertical-align:-.1em;margin-inline-end:4px}
+#grpline{direction:ltr;text-align:left;margin:0 0 8px}
 .grp{display:inline-flex;gap:6px;align-items:center;direction:ltr;font-weight:700}.grp input{width:8em}
 #pm{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:12px}
 #pm[hidden]{display:none}.pmb{background:var(--sf);border-radius:12px;padding:14px;max-width:520px;width:100%;max-height:90vh;overflow:auto}
@@ -109,12 +112,12 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 
 <details class="card" id="helpall"><summary>📚 راهنما</summary>
 <details class="sub hp" id="help"><summary>📖 راهنمای کلی</summary>
-<h4>اول از همه: پشتیبان‌گیری</h4>
-<p>کلمه‌هایت فقط داخل همین مرورگر و روی همین دستگاه می‌مانند. اگر اطلاعات مرورگر پاک شود، همه‌چیز از بین می‌رود. برای همین هفته‌ای یک بار این کار را بکن:</p>
-<ol><li>پایین صفحه دکمهٔ «پشتیبان‌گیری (JSON)» را بزن.</li><li>یک فایل ساخته می‌شود که همهٔ کلمه‌هایت داخلش است.</li><li>آن فایل را جای امن بگذار، مثلاً گوگل درایو.</li></ol>
+<h4>گام اول: پشتیبان خودکار را راه بینداز</h4>
+<p>اولین کاری که پیشنهاد می‌کنم، راه‌اندازی پشتیبان خودکار در گوگل درایو است. راهنمای قدم‌به‌قدمش در همین پنجره است، زیر عنوان «پشتیبان خودکار در گوگل درایو (Google Drive)». فقط یک بار انجامش می‌دهی. از آن به بعد، بعد از هر «ثبت»، برنامه خودش فایل پشتیبان را می‌سازد و تو کاری نداری.</p>
+<p>اگر روی ویندوز با Chrome یا Edge نیستی، یا نمی‌خواهی پوشه انتخاب کنی، می‌توانی هر از گاهی خودت دکمهٔ «پشتیبان‌گیری (JSON)» را بزنی و فایل را در گوگل درایو یا جای امن دیگری بگذاری.</p>
 <p>دو نوع فایل داریم:</p>
 <ul><li><b>فایل JSON</b> مثل جعبهٔ نجات است. همه‌چیز داخلش است. فقط با همین می‌توانی کلمه‌هایت را برگردانی.</li>
-<li><b>فایل Anki</b> برای ساختن کارت‌های مرور است. راهنمایش در پنجرهٔ «کارت‌های Anki» است.</li></ul>
+<li><b>فایل Anki</b> برای ساختن کارت‌های مرور است. راهنمایش در پنجرهٔ «کارت‌های اَنکی (Anki)» است.</li></ul>
 <p>برای برگرداندن کلمه‌ها:</p>
 <ul><li>«بازیابی کامل»: اگر کلمه‌هایت خراب شدند یا گم شدند، با این دکمه فایل پشتیبان را باز می‌کنی و همهٔ کلمه‌ها همان‌طور که در فایل بودند برمی‌گردند. کلمه‌هایی که الان در برنامه هستند پاک می‌شوند، برای همین قبلش می‌پرسد که مطمئنی یا نه.</li></ul>
 <h4>توضیحاتی کوتاه دربارۀ ثبت کلمه</h4>
@@ -123,11 +126,11 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 <li>«نوع کلمه» را انتخاب کن: اسم، ضمیر، صفت و ... (اگر «ضمیر» را انتخاب کنی، یک پنجره باز می‌شود تا نوع ضمیر را هم انتخاب کنی.)</li>
 <li>در کادر «کلمه»، خود کلمه را بنویس. اگر قبلاً ثبتش کرده باشی، زیر کادر یک پیام قرمز می‌آید.</li>
 <li>در «اطلاعات ضروری کلمه» همان‌طور که در مثال بالای کادر نوشته، اطلاعات را بنویس. مثلاً <code>puella, puellae, f.</code></li>
-<li>ترجمهٔ انگلیسی و فارسی را بنویس. معنی دیگری هم داری؟ «+ معنی دیگر» را بزن. معنی‌ها شماره می‌گیرند. مثلاً ترجمهٔ شمارهٔ ۱ انگلیسی با ترجمهٔ شمارهٔ ۱ فارسی مطابقت دارند.</li>
+<li>ترجمهٔ انگلیسی و فارسی را بنویس. معنی دیگری هم داری؟ «افزودن معانی دیگر» را بزن. معنی‌ها شماره می‌گیرند. مثلاً ترجمهٔ شمارهٔ ۱ انگلیسی با ترجمهٔ شمارهٔ ۱ فارسی مطابقت دارند.</li>
 </ol>
 <h4>پیدا کردن کلمه‌ها</h4>
 <p>در بخش فیلترها می‌توانی کلمه‌ها را بر اساس عنوان کتاب، شمارۀ فصل یا درس، شمارۀ صفحه، نوع کلمه و وضعیت صرف ببینی. همچنین می‌توانی کلمه‌ها را بر مبنای اینکه چند بار صرف شده‌اند ببینی.</p>
-<p><b>خیالت راحت باشد:</b> اگر بعد از هر بار وارد کردن کلمه‌ها «پشتیبان‌گیری» را بزنی، هیچ نگرانی‌ای برای از دست رفتن کلمه‌هایت نیست. اگر هر اتفاقی افتاد، با «بازیابی کامل» همه‌چیز برمی‌گردد.</p>
+<p><b>خیالت راحت باشد:</b> وقتی پشتیبان خودکار روشن است (یا اگر خودت بعد از هر بار وارد کردن کلمه‌ها «پشتیبان‌گیری» را بزنی)، هیچ نگرانی‌ای برای از دست رفتن کلمه‌هایت نیست. اگر هر اتفاقی افتاد، با «بازیابی کامل» همه‌چیز برمی‌گردد.</p>
 </details>
 <details class="sub hp" id="hdrive"><summary>☁️ پشتیبان خودکار در گوگل درایو (Google Drive)</summary>
 <p>این کار فقط روی <b>ویندوز</b> و با <b>Chrome یا Edge</b> کار می‌کند. روی گوشی کار نمی‌کند.</p>
@@ -162,17 +165,18 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 <li>روی گوشی اندروید، <code>AnkiDroid</code> را از Google Play نصب کن (رایگان است).</li>
 <li>در سایت <code>ankiweb.net</code> یک حساب رایگان بساز. با آن، کارت‌هایت بین کامپیوتر و گوشی می‌روند.</li></ol>
 <h4>قدم اول: ساختن نوع یادداشت (فقط یک بار)</h4>
+<p>این قدم‌ها برای اَنکیِ اندروید نوشته شده‌اند. در اَنکیِ ویندوز هم مشابه است و جاهایی که فرق دارد، در پرانتز نوشته‌ام.</p>
 <ol>
-<li>در Anki، از منوی <code>Tools</code> گزینهٔ <code>Manage Note Types</code> را بزن.</li>
-<li><code>Add</code> را بزن، گزینهٔ <code>Add: Basic</code> را انتخاب کن و <code>OK</code> بزن.</li>
+<li>در اَنکیِ اندروید، علامت <b class="dots">⋮</b> را بزن و <code>Manage note types</code> را انتخاب کن. (در اَنکیِ ویندوز: از منوی <code>Tools</code> گزینهٔ <code>Manage Note Types</code> را بزن.)</li>
+<li><code>Add</code> را بزن و گزینهٔ <code>Add: Basic</code> را انتخاب کن.</li>
 <li>نام را بنویس: <code>LinguaLatina</code> و <code>OK</code> بزن.</li>
-<li><code>LinguaLatina</code> را انتخاب کن و <code>Fields</code> را بزن.</li>
+<li>روی <code>LinguaLatina</code> بزن (انتخابش کن) تا پنجرهٔ <code>Manage fields</code> باز شود. (در اَنکیِ ویندوز: <code>LinguaLatina</code> را انتخاب کن و <code>Fields</code> را بزن.)</li>
 <li><code>Front</code> را به <code>Word</code> تغییر نام بده. <code>Back</code> را به <code>DictForm</code> تغییر نام بده.</li>
-<li>با <code>Add</code> پنج فیلد دیگر اضافه کن، دقیقاً به این ترتیب: <code>Type</code> و <code>Meaning</code> و <code>Example</code> و <code>Notes</code> و <code>Conjugation</code>.</li>
-<li><code>Save</code> را بزن. ترتیب باید این باشد: Word، DictForm، Type، Meaning، Example، Notes، Conjugation.</li></ol>
+<li>پنج فیلد دیگر اضافه کن. هر بار <code>Add</code> را بزن، اسم را بنویس و تأیید کن. دقیقاً به این ترتیب: <code>Type</code> و <code>Meaning</code> و <code>Example</code> و <code>Notes</code> و <code>Conjugation</code>. خودش ذخیره می‌شود و دکمهٔ <code>Save</code> لازم نیست. (در اَنکیِ ویندوز، بعد از اضافه‌کردن همهٔ فیلدها <code>Save</code> را بزن.)</li>
+<li>ترتیب باید این باشد: Word، DictForm، Type، Meaning، Example، Notes، Conjugation.</li></ol>
 <h4>قدم دوم: ساختن دو کارت (فقط یک بار)</h4>
-<p>دوباره <code>LinguaLatina</code> را انتخاب کن و این بار <code>Cards</code> را بزن.</p>
-<p>برای کارت اول، از <code>Options</code> گزینهٔ <code>Rename Card Type</code> را بزن و نامش را بگذار <code>Latin to Meaning</code>. بعد این سه متن را کپی و جایگذاری کن.</p>
+<p>به فهرست نوع‌های یادداشت برگرد. کنار <code>LinguaLatina</code> دو آیکن هست: <b class="dots">⋮</b> و یک آیکن سه‌خطی که کنارش مداد است. آیکن سه‌خطیِ مداددار را بزن تا قالب کارت‌ها باز شود. (در اَنکیِ ویندوز: <code>LinguaLatina</code> را انتخاب کن و <code>Cards</code> را بزن.)</p>
+<p>برای کارت اول، از منوی <b class="dots">⋮</b> گزینهٔ <code>Rename Card Type</code> را بزن و نامش را بگذار <code>Latin to Meaning</code>. بعد این سه متن را کپی و جایگذاری کن.</p>
 <p><code>Front Template</code> (کارت اول):</p><div class="cb"><button type="button" class="cp">کپی</button><pre>&lt;div class=&quot;lat big&quot;&gt;{{Word}}&lt;/div&gt;
 &lt;div class=&quot;lat small&quot;&gt;{{DictForm}}&lt;/div&gt;</pre></div>
 <p><code>Back Template</code> (کارت اول):</p><div class="cb"><button type="button" class="cp">کپی</button><pre>{{FrontSide}}
@@ -197,7 +201,7 @@ table.ct th{background:#eee;font-weight:normal}
 .ch{direction:ltr;font-weight:bold;margin-top:8px}
 .vh{font-size:17px}</pre></div>
 <p>اگر قبلاً Styling قدیمی را گذاشته‌ای، این متن تازه را جایگزینش کن تا جدول صرف مرتب دیده شود.</p>
-<p>حالا از <code>Options</code> گزینهٔ <code>Add Card Type</code> را بزن و نامش را بگذار <code>Meaning to Latin</code>.</p>
+<p>حالا از منوی <b class="dots">⋮</b> گزینهٔ <code>Add Card Type</code> را بزن و نامش را بگذار <code>Meaning to Latin</code>.</p>
 <p><code>Front Template</code> (کارت دوم):</p><div class="cb"><button type="button" class="cp">کپی</button><pre>{{#Meaning}}
 &lt;div class=&quot;meaning&quot;&gt;{{Meaning}}&lt;/div&gt;
 &lt;div class=&quot;small&quot;&gt;{{Type}}&lt;/div&gt;
@@ -212,12 +216,13 @@ table.ct th{background:#eee;font-weight:normal}
 <p>اگر نمی‌خواهی نوع کلمه روی کارت دوم دیده شود، خط <code>{{Type}}</code> را پاک کن. بعد <code>Save</code> را بزن.</p>
 <p>جدول صرف روی کارت دیده نمی‌شود. وقتی جواب کارت را می‌بینی، یک لینک «Show Conjugation» هست. با زدنش جدول باز می‌شود.</p>
 <h4>قدم سوم: وارد کردن کلمه‌ها</h4>
+<p>هر بار که خواستی کلمه‌هایی را که وارد کرده‌ای به اَنکی منتقل کنی، باید اول از همین برنامه «خروجیِ اَنکی (Anki)» را بگیری و بعد آن فایل را از داخل اَنکیِ اندروید یا ویندوز Import کنی.</p>
 <ol>
-<li>در این برنامه، پایین صفحه «خروجی Anki» را بزن. یک فایل <code>.txt</code> دانلود می‌شود.</li>
-<li>در Anki از منوی <code>File</code> گزینهٔ <code>Import</code> را بزن و آن فایل را انتخاب کن.</li>
+<li>در این برنامه، پایین صفحه «خروجیِ اَنکی (Anki)» را بزن. یک فایل <code>.txt</code> دانلود می‌شود.</li>
+<li>در اَنکی گزینهٔ <code>Import</code> را پیدا کن (ویندوز: منوی <code>File</code>، اندروید: منوی <b class="dots">⋮</b>) و آن فایل را انتخاب کن.</li>
 <li>باید <code>LinguaLatina</code> به‌عنوان نوع یادداشت و <code>Lingua Latina</code> به‌عنوان دسته نوشته شده باشد. <code>Import</code> را بزن.</li>
 <li>اگر پرسید «Existing notes»، گزینهٔ <code>Update</code> را انتخاب کن.</li></ol>
-<p><b>دفعه‌های بعد:</b> کلمه‌های تازه را در برنامه ثبت کن و دوباره «خروجی Anki» را بزن و وارد کن. کلمه‌های قبلی به‌روز می‌شوند و کارت تکراری ساخته نمی‌شود. هر کلمه یک کد دارد که Anki با آن می‌شناسدش.</p>
+<p><b>دفعه‌های بعد:</b> کلمه‌های تازه را در برنامه ثبت کن و دوباره «خروجیِ اَنکی (Anki)» را بزن و وارد کن. کلمه‌های قبلی به‌روز می‌شوند و کارت تکراری ساخته نمی‌شود. هر کلمه یک کد دارد که اَنکی با آن می‌شناسدش.</p>
 <h4>قدم چهارم: گوشی</h4>
 <p>در Anki روی کامپیوتر <code>Sync</code> را بزن. بعد در AnkiDroid هم <code>Sync</code> را بزن. کارت‌هایت روی گوشی می‌آیند.</p>
 <p>یادت باشد: اگر روی گوشی چیزی را در کارت عوض کنی، فقط در Anki عوض می‌شود. در این برنامه عوض نمی‌شود. اگر اشتباهی دیدی، آن را در این برنامه درست کن و دوباره خروجی بگیر.</p>
@@ -238,11 +243,11 @@ table.ct th{background:#eee;font-weight:normal}
 <div class="w"><label>اطلاعات ضروری کلمه <span class="lsm">(اگر اطلاعات ضروری کلمه را یاد گرفته‌ای، مطابق مثال، یادداشتشان کن.)</span></label>
 <span class="hint">اسم: puella, puellae, f. &nbsp;|&nbsp; صفت: bonus, bona, bonum &nbsp;|&nbsp; فعل: amō, amāre, amāvī, amātum</span>
 <input id="fdf" class="lat"></div>
-<div class="w"><div class="mr"><span></span><label>ترجمهٔ انگلیسی</label><label>ترجمهٔ فارسی</label><span></span></div><div id="lm"></div><button type="button" data-add>+ معنی دیگر</button></div>
+<div class="w"><div class="mr"><span></span><label>ترجمهٔ انگلیسی</label><label>ترجمهٔ فارسی</label><span></span></div><div id="lm"></div><button type="button" data-add><b class="plus">+</b> افزودن معانی دیگر</button></div>
 <div class="w"><label>جملۀ نمونه بنویس:</label><textarea id="fex" class="lat"></textarea></div>
 <div class="w"><label>نکات مهم را یادداشت کن:</label><input id="fg" class="lat"></div>
 <details class="w sarf" id="sarf"><summary><span>▾ صرفش کن:</span><span class="mu" id="sw"></span><span class="mu lat" id="stt"></span><span class="sp"></span><button type="button" class="nv lat" data-go="tv-b">[B] Passīvum</button><button type="button" class="nv lat" data-go="tv-a">[A] Āctīvum</button><button type="button" class="p cl" id="sv2">ثبت</button><span class="cl">✕ بستن</span></summary>
-<div id="tbwrap"><div id="tth"><h2 id="ttl"></h2><span class="mu lat" id="tsub"></span></div><div class="bar" id="tbtop"><button type="button" id="ptb"></button><button type="button" id="tclr">🗑 پاک‌کردن همهٔ صرف‌ها</button><span class="mu" id="tprog"></span><span class="mu" id="dcn"></span></div><div id="tbl"></div></div>
+<div id="tbwrap"><div id="tth"><h2 id="ttl"></h2><span class="mu lat" id="tsub"></span></div><div id="grpline"><label class="grp" id="grpw"><span id="grpl"></span><input id="tgr" class="lat" autocomplete="off"></label></div><div class="bar" id="tbtop"><button type="button" id="ptb"></button><button type="button" id="tclr">🗑 پاک‌کردن همهٔ صرف‌ها</button><span class="mu" id="tprog"></span><span class="mu" id="dcn"></span></div><div id="tbl"></div></div>
 <label style="margin-top:10px">اگر نکتۀ مهمی وجود دارد، بنویس:</label><textarea id="fc" class="lat"></textarea>
 </details>
 </div>
@@ -252,12 +257,12 @@ table.ct th{background:#eee;font-weight:normal}
 <div class="card">
 <div class="g">
 <div><label>عنوان کتاب</label><select id="fbk"></select></div>
-<div><label>شمارۀ فصل</label><select id="fls"></select></div>
+<div><label>شمارۀ فصل یا درس</label><select id="fls"></select></div>
 <div><label>شمارۀ صفحه</label><select id="fpg"></select></div>
 <div><label>نوع کلمه</label><select id="fty"></select></div>
 <div><label>وضعیت صرف</label><select id="fdc"><option value="">همه</option><option value="no">صرف‌نشده (اسم، ضمیر، صفت، عدد، فعل)</option><option value="yes">صرف‌شده</option></select></div>
-<div><label>جستجو</label><input id="q"></div>
-<div><label>ترتیب</label><select id="so"><option value="loc">عنوان کتاب ← شمارۀ فصل ← شمارۀ صفحه</option><option value="alpha">الفبایی</option><option value="new">جدیدترین</option><option value="dc_asc">کم‌صرف‌شده‌ترین اول</option><option value="dc_desc">پرصرف‌شده‌ترین اول</option></select></div>
+<div><label>جست‌وجو</label><input id="q"></div>
+<div><label>شیوۀ مرتب‌سازی</label><select id="so"><option value="loc">عنوان کتاب ← شمارۀ فصل یا درس ← شمارۀ صفحه</option><option value="alpha">الفبایی</option><option value="new">جدیدترین</option><option value="dc_asc">کم‌صرف‌شده‌ترین اول</option><option value="dc_desc">پرصرف‌شده‌ترین اول</option></select></div>
 </div>
 <div class="bar"><button id="here">📍 همین محلِ کادرهای بالا</button><button id="reset">پاک‌کردن فیلترها</button></div>
 <div id="list" style="margin-top:8px"></div>
@@ -266,7 +271,7 @@ table.ct th{background:#eee;font-weight:normal}
 
 <div class="card"><div class="bar">
 <button class="p" id="bk">پشتیبان‌گیری (JSON)</button><button id="pick">انتخاب پوشهٔ پشتیبان</button>
-<button id="xa">خروجی Anki</button><button id="rst">بازیابی کامل</button>
+<button id="xa">خروجیِ اَنکی (Anki)</button><button id="rst">بازیابی کامل</button>
 <input type="file" id="file" accept=".json" style="display:none">
 </div><div id="abs" class="mu" style="margin-top:8px"></div>
 <div class="mu" style="margin-top:6px" id="note"></div></div>
@@ -332,6 +337,7 @@ const leaves=(...L)=>L.reduce((a,l)=>a.flatMap(x=>l.map(([k,h])=>({k:x.k?x.k+'.'
 const PT={pp:'PRONOMINA PERSONALIA',pd:'PRONOMEN DEMONSTRATIVVM (hic; iste; ipse; is; īdem)',pos:'PRONOMINA POSSESSIVA',pi:'PRONOMINA INTERROGATIVA (quis subst. et adi.)',pr:'PRONOMINA RELATIVVM',px:'PRONOMINA INDEFINITA'};
 const TT={v:'VERBVM',n:'NOMINA SVBSTANTIVVM',adj:'NOMINA ADIECTIVVM',num:'NOMINA NVMERALIA',...PT};
 const PAR={n:{c:leaves(SP)},adj:{c:leaves(SP,G3)},num:{c:leaves(SP,G3)},pp:{c:leaves([['1','persōna prīma'],['2','persōna secunda'],['3','persōna tertia']],G3)},pd:{c:leaves(SP,G3)},pos:{c:leaves(SP,P3,G3),split:1},pi:{c:leaves(SP,G3)},pr:{c:leaves(SP,G3)},px:{c:leaves(SP,G3)}};
+const GRP={n:'Dēclīnātiō :',adj:'Dēclīnātiō :'};
 const tidOf=(t,pt)=>(t==='v'||t==='n'||t==='adj'||t==='num')?t:(t==='pron'&&PT[pt]?pt:null);
 function grid(id,cs,drop){
   const H=cs.map(c=>c.h.slice(drop)),L=H[0].length;let hd='';
@@ -372,6 +378,7 @@ function tbLines(w){
   }));
   else PAR[id].c.forEach(c=>{const vals=CASES.map(([ck])=>tb[id+'.'+c.k+'.'+ck]||'');if(vals.some(Boolean))out.push(c.h.join(' ')+': '+vals.map(x=>x||'–').join(', '))});
   if(!out.length)return[];
+  if(w.gr&&GRP[id])out.unshift(GRP[id].replace(' :','')+': '+w.gr);
   out.unshift(TT[id].replace(/ \(.*$/,''));
   return out;
 }
@@ -399,7 +406,7 @@ function tbHtml(w){
     },P=PAR[id];
     h=P.split?[...new Set(P.c.map(c=>c.h[0]))].map(t=>'<div class="ch">'+esc(t)+'</div><div class="cw">'+grd(P.c.filter(c=>c.h[0]===t),1)+'</div>').join(''):'<div class="cw">'+grd(P.c,0)+'</div>';
   }
-  return h?'<div class="ch vh">'+TT[id].replace(/ \(.*$/,'')+'</div>'+h:'';
+  return h?'<div class="ch vh">'+TT[id].replace(/ \(.*$/,'')+'</div>'+(w.gr&&GRP[id]?'<div class="ch">'+GRP[id].replace(' :','')+': '+esc(w.gr)+'</div>':'')+h:'';
 }
 function side(cur,dir){
   const r=cur.getBoundingClientRect(),cy=r.top+r.height/2,cx=r.left+r.width/2;let best=null,bd=1e9;
@@ -427,6 +434,7 @@ function syncType(){
   $('#ttl').textContent=id?m[1]:'';$('#tsub').textContent=id&&m[3]?'('+m[3]+')':'';$('#stt').textContent=id?m[1]:'';
   $('#ptb').style.display=isP?'':'none';$('#ptb').textContent=id?'نوع ضمیر: '+m[1]+'  (تغییر)':'نوع ضمیر را انتخاب کن';
   $('#tclr').style.display=id?'':'none';
+  $('#grpline').style.display=GRP[id]?'':'none';$('#grpl').textContent=GRP[id]||'';
   prevType=t;
 }
 function openPm(){$('#pml').innerHTML=Object.entries(PT).map(([k,v])=>`<button type="button" data-p="${k}">${esc(v)}</button>`).join('');$('#pm').hidden=false}
@@ -512,10 +520,10 @@ function checkDup(){
   $('#save').textContent=hits.length?'ثبت (تکراری)':(editing?'ذخیرهٔ ویرایش':'ثبت');
 }
 ['input','change','blur'].forEach(ev=>$('#fl').addEventListener(ev,checkDup));
-function clearForm(){F.forEach(k=>{if(k!=='t')$('#f'+k).value=''});setM();curPt='';syncType();setTb();$('#sarf').open=false;$('#sw').textContent='';$('#dup').innerHTML='';editing=null;$('#cancel').style.display='none';$('#mode').textContent='';$('#save').textContent='ثبت';fresh=false;$('#dcn').textContent=''}
+function clearForm(){F.forEach(k=>{if(k!=='t')$('#f'+k).value=''});setM();curPt='';syncType();setTb();$('#tgr').value='';$('#sarf').open=false;$('#sw').textContent='';$('#dup').innerHTML='';editing=null;$('#cancel').style.display='none';$('#mode').textContent='';$('#save').textContent='ثبت';fresh=false;$('#dcn').textContent=''}
 function startEdit(id){
   const p=find(id);if(!p)return;const w=B[p[0]][p[1]];
-  F.forEach(k=>$('#f'+k).value=w[k]||'');setM(w.m);curPt=w.pt||'';syncType();setTb(w.tb);fresh=false;$('#dcn').textContent='دفعات صرف کامل: '+(w.dc||0);$('#sw').textContent=w.l;
+  F.forEach(k=>$('#f'+k).value=w[k]||'');setM(w.m);curPt=w.pt||'';syncType();setTb(w.tb);$('#tgr').value=w.gr||'';fresh=false;$('#dcn').textContent='دفعات صرف کامل: '+(w.dc||0);$('#sw').textContent=w.l;
   $('#sarf').open=!!w.c&&!tidOf(w.t,w.pt);
   $('#hbk').value=w.bk||'';$('#hls').value=w.ls||'';$('#hpg').value=w.pg||'';chk();
   editing=id;$('#cancel').style.display='';$('#mode').textContent='در حال ویرایش';checkDup();
@@ -535,7 +543,7 @@ function save(){
   w.m=getM();
   const tid=tidOf(w.t,curPt);
   if(w.t==='pron'&&curPt)w.pt=curPt;else delete w.pt;
-  if(tid){const tb=getTb();if(Object.keys(tb).length)w.tb=tb;else delete w.tb;delete w.gr;const st=tbStat(),full=st.n>0&&st.f===st.n;if(full&&(fresh||!w.td))w.dc=(w.dc||0)+1;w.td=full}
+  if(tid){const tb=getTb();if(Object.keys(tb).length)w.tb=tb;else delete w.tb;if(GRP[tid]){const gr=$('#tgr').value.trim();if(gr)w.gr=gr;else delete w.gr}else delete w.gr;const st=tbStat(),full=st.n>0&&st.f===st.n;if(full&&(fresh||!w.td))w.dc=(w.dc||0)+1;w.td=full}
   delete w.na;
   w.bk=$('#hbk').value.trim();w.ls=$('#hls').value.trim();w.pg=$('#hpg').value.trim();
   if(!w.l){$('#sarf').open=false;msg('کلمه را بنویس');$('#fl').focus();return}
