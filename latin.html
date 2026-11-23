@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Lingua Latīna</title>
-<meta name="app-version" content="5f8207ff5a">
+<meta name="app-version" content="d3fe58e81e">
 <meta name="theme-color" content="#8a3b2e">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -136,7 +136,7 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 <label style="margin-top:10px">If there is an important note, write it:</label><textarea id="fc" class="lat"></textarea>
 </details>
 <div class="w"><label>Essential information about the word <span class="lsm">(If you know the essential information, write it like the examples.)</span></label>
-<span class="hint">Substantive: puella, puellae, f. &nbsp;|&nbsp; Adjective: bonus, bona, bonum &nbsp;|&nbsp; Verb: amō, amāre, amāvī, amātum</span>
+<span class="hint">Substantīvum: puella, puellae, f. &nbsp;|&nbsp; Adiectīvum: bonus, bona, bonum &nbsp;|&nbsp; Verbum: amō, amāre, amāvī, amātum</span>
 <input id="fdf" class="lat"></div>
 <div class="w"><div class="mr" id="mh"><span class="sp0"></span><label>English translation</label><label>Persian translation</label><span></span></div><div id="lm"></div><button type="button" data-add><b class="plus">+</b> Add more meanings</button></div>
 <div class="w"><label>Write an example sentence:</label><textarea id="fex" class="lat"></textarea></div>
@@ -151,7 +151,7 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 <div><label>Chapter or lesson number</label><select id="fls"></select></div>
 <div><label>Page number</label><select id="fpg"></select></div>
 <div><label>Word class</label><select id="fty"></select></div>
-<div><label>Inflection status</label><select id="fdc"><option value="">All</option><option value="no">Not inflected yet (substantive, pronoun, adjective, numeral, verb)</option><option value="yes">Inflected</option></select></div>
+<div><label>Inflection status</label><select id="fdc"><option value="">All</option><option value="no">Not inflected yet (Substantīvum, Prōnōmen, Adiectīvum, Numerāle, Verbum)</option><option value="yes">Inflected</option></select></div>
 <div><label>Search</label><input id="q"></div>
 <div style="grid-column:span 2"><label>Sort by</label><select id="so"><option value="loc">Book title → chapter or lesson → page</option><option value="alpha">Alphabetical</option><option value="new">Newest</option><option value="dc_asc">Least inflected first</option><option value="dc_desc">Most inflected first</option></select></div>
 </div>
@@ -291,7 +291,7 @@ table.ct th{background:#eee;font-weight:normal}
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const DBN='latinvocab',PFX='lv_',FNP='latin-vocab-';
-const TYPES=[['n','Substantive'],['pron','Pronoun'],['adj','Adjective'],['num','Numeral'],['v','Verb'],['adv','Adverb'],['prep','Preposition'],['conj','Conjunction'],['other','Other (idiom, interjection, etc.)']];
+const TYPES=[['n','Substantīvum'],['pron','Prōnōmen'],['adj','Adiectīvum'],['num','Numerāle'],['v','Verbum'],['adv','Adverbium'],['prep','Praepositiō'],['conj','Coniūnctiō'],['other','Cetera']];
 const tn=Object.fromEntries(TYPES),F=['l','df','t','g','ex','c'],DECL=['n','pron','adj','num','v'];
 const declined=w=>Object.keys(w.tb||{}).length>0||(!tidOf(w.t,w.pt)&&!!w.c);
 const TN={pr:'praesēns',im:'imperfectum',fu:'futūrum',pf:'perfectum',pq:'plūsquamperfectum',fp:'futūrum perfectum'};
@@ -359,9 +359,10 @@ setM();
 const SP=[['s','sing.'],['p','plūr.']],G3=[['m','m'],['f','f'],['n','n']],P3=[['1','pers 1'],['2','pers 2'],['3','pers 3']];
 const CASES=[['nom','nōm.'],['voc','voc.'],['acc','acc.'],['gen','gen.'],['dat','dat.'],['abl','abl.']];
 const leaves=(...L)=>L.reduce((a,l)=>a.flatMap(x=>l.map(([k,h])=>({k:x.k?x.k+'.'+k:k,h:[...x.h,h]}))),[{k:'',h:[]}]);
-const PT={pp:'PRONOMINA PERSONALIA',pd:'PRONOMEN DEMONSTRATIVVM (hic; iste; ipse; is; īdem)',pos:'PRONOMINA POSSESSIVA',pi:'PRONOMINA INTERROGATIVA (quis subst. et adi.)',pr:'PRONOMINA RELATIVVM',px:'PRONOMINA INDEFINITA'};
+const PT={pp:'Prōnōmina persōnālia',pd:'Prōnōmina dēmōnstrātīva',pos:'Prōnōmina possessīva',pi:'Prōnōmina interrogātīva',pr:'Prōnōmen relātīvum',px:'Prōnōmina indēfīnīta'};
 const TT={v:'VERBVM',n:'NOMINA SVBSTANTIVVM',adj:'NOMINA ADIECTIVVM',num:'NOMINA NVMERALIA',...PT};
-const PAR={n:{c:leaves(SP)},adj:{c:leaves(SP,G3)},num:{c:leaves(SP,G3)},pp:{c:leaves([['1','persōna prīma'],['2','persōna secunda'],['3','persōna tertia']],G3)},pd:{c:leaves(SP,G3)},pos:{c:leaves(SP,P3,G3),split:1},pi:{c:leaves(SP,G3)},pr:{c:leaves(SP,G3)},px:{c:leaves(SP,G3)}};
+const ADV=[['pos','pos.'],['comp','comp.'],['sup','sup.']];
+const PAR={n:{c:leaves(SP)},adj:{c:leaves(SP,G3),tabs:[['positīvus','adj'],['comparātīvus','adj2'],['superlātīvus','adj3']],adv:1},num:{c:leaves(SP,G3),tabs:[['Cardinālia','num'],['Ōrdinālia','num2'],['Distribūtiva','num3']]},pp:{c:leaves([['1','persōna prīma'],['2','persōna secunda'],['3','persōna tertia']],G3)},pd:{c:leaves(SP,G3)},pos:{c:leaves(SP,P3,G3),split:1},pi:{c:leaves(SP,G3)},pr:{c:leaves(SP,G3)},px:{c:leaves(SP,G3)}};
 const GRP={n:'Dēclīnātiō :',adj:'Dēclīnātiō :'};
 const tidOf=(t,pt)=>(t==='v'||t==='n'||t==='adj'||t==='num')?t:(t==='pron'&&PT[pt]?pt:null);
 function grid(id,cs,drop){
@@ -382,6 +383,9 @@ function buildVerb(){
 function buildTbl(id){
   if(id==='v')return buildVerb();
   const P=PAR[id];if(!P)return '';
+  if(P.tabs){let h=P.tabs.map(([t,pre])=>`<h4 class="lat">${t}</h4>`+grid(pre,P.c,0)).join('');
+    if(P.adv)h+='<h4 class="lat">Adverbium</h4><div class="pw"><div class="pg" style="grid-template-columns:repeat(3,var(--cw))">'+ADV.map(([k,l],i)=>`<div class="ph" style="grid-row:1;grid-column:${i+1}">${l}</div>`).join('')+ADV.map(([k],i)=>`<input class="tc lat" data-k="${id}.adv.${k}" style="grid-row:2;grid-column:${i+1}" autocomplete="off" spellcheck="false">`).join('')+'</div></div>';
+    return h}
   if(P.split)return [...new Set(P.c.map(c=>c.h[0]))].map(t=>`<h4 class="lat">${t}</h4>`+grid(id,P.c.filter(c=>c.h[0]===t),1)).join('');
   return grid(id,P.c,0);
 }
@@ -401,7 +405,8 @@ function tbLines(w){
     if(typeof sp==='string')sp.split(' ').forEach(t=>{const vals=['s1','s2','s3','p1','p2','p3'].map(x=>tb[key(v,m,t,x)]||'');if(vals.some(Boolean))out.push(pre+' '+TN[t]+': '+vals.map(x=>x||'–').join(', '))});
     else sp.forEach(([k,l])=>{const x=tb[key(v,m,k==='_'?'':k)];if(x)out.push((pre+' '+(l||TN[k]||'')).trim()+': '+x)});
   }));
-  else PAR[id].c.forEach(c=>{const vals=CASES.map(([ck])=>tb[id+'.'+c.k+'.'+ck]||'');if(vals.some(Boolean))out.push(c.h.join(' ')+': '+vals.map(x=>x||'–').join(', '))});
+  else{const P=PAR[id];(P.tabs||[[null,id]]).forEach(([t,pre])=>P.c.forEach(c=>{const vals=CASES.map(([ck])=>tb[pre+'.'+c.k+'.'+ck]||'');if(vals.some(Boolean))out.push((t?t+' ':'')+c.h.join(' ')+': '+vals.map(x=>x||'–').join(', '))}));
+    if(P.adv){const v=ADV.map(([k,l])=>[l,tb[id+'.adv.'+k]]).filter(x=>x[1]);if(v.length)out.push('Adverbium: '+v.map(x=>x[0]+' '+x[1]).join(', '))}}
   if(!out.length)return[];
   if(w.gr&&GRP[id])out.unshift(GRP[id].replace(' :','')+': '+w.gr);
   out.unshift(TT[id].replace(/ \(.*$/,''));
@@ -423,13 +428,16 @@ function tbHtml(w){
     if(sec)h+='<div class="ch vh">'+vt+'</div>'+sec;
   });
   else{
-    const grd=(cs,drop)=>{
+    const grd=(cs,drop,pre)=>{
       const H=cs.map(c=>c.h.slice(drop)),L=H[0].length;let r='';
       for(let l=1;l<=L;l++){r+='<tr><th></th>';let j=0;while(j<cs.length){let k=j;const pk=H[j].slice(0,l).join('|');while(k+1<cs.length&&H[k+1].slice(0,l).join('|')===pk)k++;r+='<th colspan="'+(k-j+1)+'">'+esc(H[j][l-1])+'</th>';j=k+1}r+='</tr>'}
-      CASES.forEach(([ck,cl])=>{r+='<tr><th>'+cl+'</th>'+cs.map(c=>'<td>'+esc(tb[id+'.'+c.k+'.'+ck]||'–')+'</td>').join('')+'</tr>'});
+      CASES.forEach(([ck,cl])=>{r+='<tr><th>'+cl+'</th>'+cs.map(c=>'<td>'+esc(tb[pre+'.'+c.k+'.'+ck]||'–')+'</td>').join('')+'</tr>'});
       return '<table class="ct">'+r+'</table>';
     },P=PAR[id];
-    h=P.split?[...new Set(P.c.map(c=>c.h[0]))].map(t=>'<div class="ch">'+esc(t)+'</div><div class="cw">'+grd(P.c.filter(c=>c.h[0]===t),1)+'</div>').join(''):'<div class="cw">'+grd(P.c,0)+'</div>';
+    if(P.tabs){
+      h=P.tabs.map(([t,pre])=>P.c.some(c=>CASES.some(([ck])=>tb[pre+'.'+c.k+'.'+ck]))?'<div class="ch">'+esc(t)+'</div><div class="cw">'+grd(P.c,0,pre)+'</div>':'').join('');
+      if(P.adv&&ADV.some(([k])=>tb[id+'.adv.'+k]))h+='<div class="ch">Adverbium</div><div class="cw"><table class="ct"><tr>'+ADV.map(([k,l])=>'<th>'+l+'</th>').join('')+'</tr><tr>'+ADV.map(([k])=>'<td>'+esc(tb[id+'.adv.'+k]||'–')+'</td>').join('')+'</tr></table></div>';
+    }else h=P.split?[...new Set(P.c.map(c=>c.h[0]))].map(t=>'<div class="ch">'+esc(t)+'</div><div class="cw">'+grd(P.c.filter(c=>c.h[0]===t),1,id)+'</div>').join(''):'<div class="cw">'+grd(P.c,0,id)+'</div>';
   }
   return h?'<div class="ch vh">'+TT[id].replace(/ \(.*$/,'')+'</div>'+(w.gr&&GRP[id]?'<div class="ch">'+GRP[id].replace(' :','')+': '+esc(w.gr)+'</div>':'')+h:'';
 }
