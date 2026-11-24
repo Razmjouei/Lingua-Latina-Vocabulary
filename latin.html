@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Lingua Latīna</title>
-<meta name="app-version" content="d3fe58e81e">
+<meta name="app-version" content="bd0c0f26f1">
 <meta name="theme-color" content="#8a3b2e">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -123,7 +123,7 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 <div class="card sticky"><div class="mu" style="margin-bottom:6px">📌 These three boxes keep their values until you change them.</div>
 <div class="g">
 <div><label>Book title (no spaces)</label><input id="hbk" class="lat"><div class="warn" id="ebk" hidden></div></div>
-<div><label>Chapter or lesson number (digits only)</label><input id="hls" class="lat" inputmode="numeric"><div class="warn" id="els" hidden></div></div>
+<div><label>Chapter number (digits only)</label><input id="hls" class="lat" inputmode="numeric"><div class="warn" id="els" hidden></div></div>
 <div><label>Page number (digits only)</label><input id="hpg" class="lat" inputmode="numeric"><div class="warn" id="epg" hidden></div></div>
 </div></div>
 
@@ -132,7 +132,7 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 <div class="w"><label>Word class</label><select id="ft"></select></div>
 <div class="w"><label>Word *</label><input id="fl" class="lat" autocomplete="off"><div id="dup"></div></div>
 <details class="w sarf" id="sarf"><summary><span>▾ Declension / conjugation:</span><span class="mu" id="sw"></span><span class="mu lat" id="stt"></span><span class="sp"></span><button type="button" class="nv lat" data-go="tv-b">[B] Passīvum</button><button type="button" class="nv lat" data-go="tv-a">[A] Āctīvum</button><button type="button" class="p cl" id="sv2">Save</button><span class="cl">✕ Close</span></summary>
-<div id="tbwrap"><div id="tth"><h2 id="ttl"></h2><span class="mu lat" id="tsub"></span></div><div id="grpline"><label class="grp" id="grpw"><span id="grpl"></span><input id="tgr" class="lat" autocomplete="off"></label></div><div class="bar" id="tbtop"><button type="button" id="ptb"></button><button type="button" id="tclr">🗑 Clear all cells</button><span class="mu" id="tprog"></span><span class="mu" id="dcn"></span></div><div id="tbl"></div></div>
+<div id="tbwrap"><div id="tth"><h2 id="ttl"></h2><span class="mu lat" id="tsub"></span></div><div id="grpline"><label class="grp" id="grpw"><span id="grpl"></span><input id="tgr" class="lat" autocomplete="off"></label></div><div class="bar" id="tbtop"><button type="button" id="ptb"></button><button type="button" id="tclr">🗑 Clear all cells</button><button type="button" id="tundo" hidden>↩ Undo clear</button><span class="mu" id="tprog"></span><span class="mu" id="dcn"></span></div><div id="tbl"></div></div>
 <label style="margin-top:10px">If there is an important note, write it:</label><textarea id="fc" class="lat"></textarea>
 </details>
 <div class="w"><label>Essential information about the word <span class="lsm">(If you know the essential information, write it like the examples.)</span></label>
@@ -148,12 +148,12 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 <div class="card">
 <div class="g">
 <div><label>Book title</label><select id="fbk"></select></div>
-<div><label>Chapter or lesson number</label><select id="fls"></select></div>
+<div><label>Chapter number</label><select id="fls"></select></div>
 <div><label>Page number</label><select id="fpg"></select></div>
 <div><label>Word class</label><select id="fty"></select></div>
 <div><label>Inflection status</label><select id="fdc"><option value="">All</option><option value="no">Not inflected yet (Substantīvum, Prōnōmen, Adiectīvum, Numerāle, Verbum)</option><option value="yes">Inflected</option></select></div>
 <div><label>Search</label><input id="q"></div>
-<div style="grid-column:span 2"><label>Sort by</label><select id="so"><option value="loc">Book title → chapter or lesson → page</option><option value="alpha">Alphabetical</option><option value="new">Newest</option><option value="dc_asc">Least inflected first</option><option value="dc_desc">Most inflected first</option></select></div>
+<div style="grid-column:span 2"><label>Sort by</label><select id="so"><option value="loc">Book title → chapter → page</option><option value="alpha">Alphabetical</option><option value="new">Newest</option><option value="dc_asc">Least inflected first</option><option value="dc_desc">Most inflected first</option></select></div>
 </div>
 <div class="bar"><button id="here">📍 Same place as the boxes above</button><button id="reset">Clear filters</button></div>
 <div id="list" style="margin-top:8px"></div>
@@ -177,7 +177,7 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 <li><b>Anki file</b> (Export for Anki): for review cards. See the Anki guide below.</li></ul>
 <h4>Add a word</h4>
 <ol>
-<li>Fill in the three top boxes: Book title (no spaces, for example <code>FamiliaRomana</code>), Chapter or lesson number, and Page number (digits only). They stay until you change them.</li>
+<li>Fill in the three top boxes: Book title (no spaces, for example <code>FamiliaRomana</code>), Chapter number, and Page number (digits only). They stay until you change them.</li>
 <li>Word class: press its number, 1 to 9.</li>
 <li>Word: type the word. A red message appears if you saved it before.</li>
 <li>Declension / conjugation (optional): open it, fill in the table, and press Save. Use Tab, Enter, or the arrow keys to move between cells.</li>
@@ -185,7 +185,7 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 <li>Meanings: write the English and the Persian meaning. Press “Add more meanings” for more. English meaning 1 matches Persian meaning 1.</li>
 <li>Press Save.</li></ol>
 <h4>Find words</h4>
-<p>Use the filters: Book title, Chapter or lesson number, Page number, Word class, and Inflection status. In “Sort by”, choose “Least inflected first” to see the words you practiced least.</p>
+<p>Use the filters: Book title, Chapter number, Page number, Word class, and Inflection status. In “Sort by”, choose “Least inflected first” to see the words you practiced least.</p>
 <p><b>Do not worry.</b> With automatic backup on, your words are safe. If something goes wrong, press “Full restore”.</p>
 </details>
 <details class="sub hp" id="hdrive"><summary>☁️ Automatic backup with Google Drive</summary>
@@ -397,7 +397,18 @@ const setTb=tb=>{$$('#tbl .tc').forEach(i=>i.value=(tb&&tb[i.dataset.k])||'');pr
 function tbStat(){const c=$$('#tbl .tc');return{n:c.length,f:c.filter(i=>i.value.trim()).length}}
 function prog(){const s=tbStat();$('#tprog').textContent=s.n?s.f+' of '+s.n+' cells filled':''}
 $('#tbl').addEventListener('input',prog);
-$('#tclr').onclick=()=>{if(!confirm('Clear all cells of this word’s table so you can fill it in again?'))return;$$('#tbl .tc').forEach(i=>i.value='');fresh=true;prog();msg('Table cleared. Press “Save” to store it.')};
+let undoVals=null,undoFresh=false,undoT=null;
+$('#tclr').onclick=()=>{
+  const cells=$$('#tbl .tc');if(!cells.length)return;
+  undoVals=cells.map(i=>i.value);undoFresh=fresh;
+  cells.forEach(i=>{i.value='';i.dispatchEvent(new Event('input',{bubbles:true}))});fresh=true;prog();
+  $('#tundo').hidden=false;clearTimeout(undoT);undoT=setTimeout(()=>{$('#tundo').hidden=true;undoVals=null},15000);
+  msg('All cells cleared. Press “Save” to keep this, or “Undo clear”.');
+};
+$('#tundo').onclick=()=>{
+  if(!undoVals)return;
+  $$('#tbl .tc').forEach((i,n)=>i.value=undoVals[n]||'');fresh=undoFresh;undoVals=null;$('#tundo').hidden=true;clearTimeout(undoT);prog();msg('Undone.');
+};
 function tbLines(w){
   const id=tidOf(w.t,w.pt),tb=w.tb;if(!id||!tb)return[];const out=[];
   if(id==='v')VT.forEach(([v,vt,parts])=>parts.forEach(([m,mt,sp])=>{
@@ -571,7 +582,7 @@ function place(it){
 }
 function save(){
   if(!ready){msg('Data is not loaded yet. Wait a few seconds.',1);return}
-  if(!chk(true)){$('#sarf').open=false;msg('Fill in the book title, the chapter or lesson number, and the page number correctly.',1);chk.first&&chk.first.focus();return}
+  if(!chk(true)){$('#sarf').open=false;msg('Fill in the book title, the chapter number, and the page number correctly.',1);chk.first&&chk.first.focus();return}
   const p=editing&&find(editing),w=p?{...B[p[0]][p[1]]}:{id:uid(),ts:Date.now()};
   F.forEach(k=>w[k]=$('#f'+k).value.trim());
   w.m=getM();
