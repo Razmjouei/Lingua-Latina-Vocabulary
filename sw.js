@@ -1,5 +1,5 @@
 const CACHE='lv-shell';
-const FILES=['./','./index.html','./latin.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
+const FILES=['./','./index.html','./latin.html','./greek.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==CACHE).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',e=>{

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Lingua Latīna</title>
-<meta name="app-version" content="bd0c0f26f1">
+<meta name="app-version" content="6c117307d1">
 <meta name="theme-color" content="#8a3b2e">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -30,6 +30,7 @@ input,select,textarea,button{font:inherit;color:var(--tx);background:var(--bg);b
 textarea{min-height:60px;resize:vertical}
 input,textarea,.lw,.df,.tr,.det,.l2{font-family:Asea,SahelAr,'Segoe UI',system-ui,sans-serif}
 .mf{direction:rtl;text-align:right}
+.gx{font-family:Asea,SahelAr,'Segoe UI',system-ui,sans-serif}
 .lat{direction:ltr;text-align:left}
 button{width:auto;cursor:pointer}
 button.p{background:var(--ac);color:var(--act);border-color:var(--ac);font-weight:700}
@@ -131,7 +132,7 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 <div class="g">
 <div class="w"><label>Word class</label><select id="ft"></select></div>
 <div class="w"><label>Word *</label><input id="fl" class="lat" autocomplete="off"><div id="dup"></div></div>
-<details class="w sarf" id="sarf"><summary><span>▾ Declension / conjugation:</span><span class="mu" id="sw"></span><span class="mu lat" id="stt"></span><span class="sp"></span><button type="button" class="nv lat" data-go="tv-b">[B] Passīvum</button><button type="button" class="nv lat" data-go="tv-a">[A] Āctīvum</button><button type="button" class="p cl" id="sv2">Save</button><span class="cl">✕ Close</span></summary>
+<details class="w sarf" id="sarf"><summary><span>▾ Declension / conjugation:</span><span class="mu" id="sw"></span><span class="mu lat" id="stt"></span><span class="sp"></span><button type="button" class="nv lat" data-go="tv-b">[B] Passīvum</button><button type="button" class="nv lat" data-go="tv-a">[A] Āctīvum</button><button type="button" class="p cl" id="sv2">Save table</button><span class="cl">✕ Close</span></summary>
 <div id="tbwrap"><div id="tth"><h2 id="ttl"></h2><span class="mu lat" id="tsub"></span></div><div id="grpline"><label class="grp" id="grpw"><span id="grpl"></span><input id="tgr" class="lat" autocomplete="off"></label></div><div class="bar" id="tbtop"><button type="button" id="ptb"></button><button type="button" id="tclr">🗑 Clear all cells</button><button type="button" id="tundo" hidden>↩ Undo clear</button><span class="mu" id="tprog"></span><span class="mu" id="dcn"></span></div><div id="tbl"></div></div>
 <label style="margin-top:10px">If there is an important note, write it:</label><textarea id="fc" class="lat"></textarea>
 </details>
@@ -180,7 +181,7 @@ summary{cursor:pointer;font-weight:700;padding:4px 0}
 <li>Fill in the three top boxes: Book title (no spaces, for example <code>FamiliaRomana</code>), Chapter number, and Page number (digits only). They stay until you change them.</li>
 <li>Word class: press its number, 1 to 9.</li>
 <li>Word: type the word. A red message appears if you saved it before.</li>
-<li>Declension / conjugation (optional): open it, fill in the table, and press Save. Use Tab, Enter, or the arrow keys to move between cells.</li>
+<li>Declension / conjugation (optional): open it, fill in the table, and press “Save table”. Then press “Save” at the end to store the whole word. Use Tab, Enter, or the arrow keys to move between cells.</li>
 <li>Essential information: write it like the examples above the box.</li>
 <li>Meanings: write the English and the Persian meaning. Press “Add more meanings” for more. English meaning 1 matches Persian meaning 1.</li>
 <li>Press Save.</li></ol>
@@ -290,15 +291,20 @@ table.ct th{background:#eee;font-weight:normal}
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+/*@L:CFG*/
 const DBN='latinvocab',PFX='lv_',FNP='latin-vocab-';
 const TYPES=[['n','Substantīvum'],['pron','Prōnōmen'],['adj','Adiectīvum'],['num','Numerāle'],['v','Verbum'],['adv','Adverbium'],['prep','Praepositiō'],['conj','Coniūnctiō'],['other','Cetera']];
+/*@/L:CFG*/
+const lab=t=>t[1]+(t[2]?' ('+t[2]+')':'');
 const tn=Object.fromEntries(TYPES),F=['l','df','t','g','ex','c'],DECL=['n','pron','adj','num','v'];
 const declined=w=>Object.keys(w.tb||{}).length>0||(!tidOf(w.t,w.pt)&&!!w.c);
+/*@L:TBL1*/
 const TN={pr:'praesēns',im:'imperfectum',fu:'futūrum',pf:'perfectum',pq:'plūsquamperfectum',fp:'futūrum perfectum'};
 const VT=[['a','[A] Āctīvum',[['inf','Īnfīnītīvus',[['pr'],['pf'],['fu']]],['imp','Imperātīvus',[['s','sing.'],['p','plūr.']]],['ind','Indicātīvus','pr im fu pf pq fp'],['con','Coniūnctīvus','pr im pf pq'],['par','Participium',[['pr'],['fu']]],['sup','Supīna',[['_','']]]]],
 ['b','[B] Passīvum',[['inf','Īnfīnītīvus',[['pr'],['pf'],['fu']]],['ind','Indicātīvus','pr im fu pf pq fp'],['con','Coniūnctīvus','pr im pf pq'],['par','Participium',[['pf']]],['ger','Gerundīvum',[['_','']]]]]];
+/*@/L:TBL1*/
 const fa=n=>String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
-const norm=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+const norm=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ς/g,'σ').toLowerCase().trim();
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const arr=v=>Array.isArray(v)?v:(v?[String(v)]:[]);
 const nat=(a,b)=>String(a||'').localeCompare(String(b||''),'en',{numeric:true});
@@ -310,9 +316,9 @@ const stamp=()=>new Date().toISOString().slice(0,10);
 let B={},all=[],idx={},editing=null,fresh=false,shown=200,q=Promise.resolve(),ready=false,fm='imp';
 function msg(t,err){const m=$('#msg');m.style.background=err?'#b91c1c':'';m.style.color=err?'#fff':'';m.textContent=t;m.style.display='block';clearTimeout(msg.t);msg.t=setTimeout(()=>m.style.display='none',err?6000:2200)}
 const lsGet=k=>{try{return localStorage.getItem(PFX+k)}catch(e){return null}},lsSet=(k,v)=>{try{localStorage.setItem(PFX+k,v)}catch(e){}};
-$('#ft').innerHTML=TYPES.map((t,i)=>`<option value="${t[0]}">${i+1}. ${t[1]}</option>`).join('');
+$('#ft').innerHTML=TYPES.map((t,i)=>`<option value="${t[0]}">${i+1}. ${lab(t)}</option>`).join('');
 const tw=$('#ft').parentElement,tl=document.createElement('div');tl.id='tlist';tl.hidden=true;tw.style.position='relative';tw.append(tl);let th=0;
-function showT(){th=Math.max(0,TYPES.findIndex(t=>t[0]===$('#ft').value));tl.innerHTML=TYPES.map((t,i)=>`<div data-i="${i}"${i===th?' class="on"':''}>${i+1}. ${t[1]}</div>`).join('');tl.hidden=false}
+function showT(){th=Math.max(0,TYPES.findIndex(t=>t[0]===$('#ft').value));tl.innerHTML=TYPES.map((t,i)=>`<div data-i="${i}"${i===th?' class="on"':''}>${i+1}. ${lab(t)}</div>`).join('');tl.hidden=false}
 const hideT=()=>{tl.hidden=true};
 function pickT(i){$('#ft').value=TYPES[i][0];hideT();$('#ft').dispatchEvent(new Event('input',{bubbles:true}));if($('#pm').hidden)$('#fl').focus()}
 $('#ft').addEventListener('focus',showT);$('#ft').addEventListener('blur',hideT);
@@ -327,7 +333,7 @@ $('#ft').addEventListener('keydown',e=>{
   if((e.key==='Enter'||e.key===' ')&&!tl.hidden){e.preventDefault();e.stopPropagation();pickT(th);return}
   if(e.key==='Escape')hideT();
 });
-$('#fty').innerHTML='<option value="">All</option>'+TYPES.map(t=>`<option value="${t[0]}">${t[1]}</option>`).join('');
+$('#fty').innerHTML='<option value="">All</option>'+TYPES.map(t=>`<option value="${t[0]}">${lab(t)}</option>`).join('');
 
 document.addEventListener('click',e=>{const b=e.target.closest('.cp');if(!b)return;const t=b.nextElementSibling.textContent;
   (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>msg('Copied ✓')).catch(()=>msg('Could not copy. Select the text and copy it yourself.',1))});
@@ -356,6 +362,7 @@ $('#form').addEventListener('click',e=>{
 setM();
 
 /* verb table */
+/*@L:TBL2*/
 const SP=[['s','sing.'],['p','plūr.']],G3=[['m','m'],['f','f'],['n','n']],P3=[['1','pers 1'],['2','pers 2'],['3','pers 3']];
 const CASES=[['nom','nōm.'],['voc','voc.'],['acc','acc.'],['gen','gen.'],['dat','dat.'],['abl','abl.']];
 const leaves=(...L)=>L.reduce((a,l)=>a.flatMap(x=>l.map(([k,h])=>({k:x.k?x.k+'.'+k:k,h:[...x.h,h]}))),[{k:'',h:[]}]);
@@ -389,6 +396,7 @@ function buildTbl(id){
   if(P.split)return [...new Set(P.c.map(c=>c.h[0]))].map(t=>`<h4 class="lat">${t}</h4>`+grid(id,P.c.filter(c=>c.h[0]===t),1)).join('');
   return grid(id,P.c,0);
 }
+/*@/L:TBL2*/
 let curT=null,curPt='',prevType='n';
 const anyFilled=()=>$$('#tbl .tc').some(i=>i.value.trim());
 function showTable(id){curT=id;$('#tbl').innerHTML=id?buildTbl(id):'';prog()}
@@ -409,6 +417,7 @@ $('#tundo').onclick=()=>{
   if(!undoVals)return;
   $$('#tbl .tc').forEach((i,n)=>i.value=undoVals[n]||'');fresh=undoFresh;undoVals=null;$('#tundo').hidden=true;clearTimeout(undoT);prog();msg('Undone.');
 };
+/*@L:TBL3*/
 function tbLines(w){
   const id=tidOf(w.t,w.pt),tb=w.tb;if(!id||!tb)return[];const out=[];
   if(id==='v')VT.forEach(([v,vt,parts])=>parts.forEach(([m,mt,sp])=>{
@@ -452,6 +461,7 @@ function tbHtml(w){
   }
   return h?'<div class="ch vh">'+TT[id].replace(/ \(.*$/,'')+'</div>'+(w.gr&&GRP[id]?'<div class="ch">'+GRP[id].replace(' :','')+': '+esc(w.gr)+'</div>':'')+h:'';
 }
+/*@/L:TBL3*/
 function side(cur,dir){
   const r=cur.getBoundingClientRect(),cy=r.top+r.height/2,cx=r.left+r.width/2;let best=null,bd=1e9;
   $$('#tbl .tc').filter(i=>{const d=i.closest('.vo');return !d||d.open}).forEach(i=>{if(i===cur)return;const b=i.getBoundingClientRect(),d=(b.left+b.width/2-cx)*dir;if(Math.abs(b.top+b.height/2-cy)<r.height/2&&d>0&&d<bd){bd=d;best=i}});
@@ -469,15 +479,15 @@ $('#tbl').addEventListener('keydown',e=>{
 });
 $('#tbl').addEventListener('focusin',e=>{if(e.target.classList.contains('tc'))e.target.select()});
 function syncType(){
-  const t=$('#ft').value,id=tidOf(t,curPt),isP=t==='pron';
+  const t=$('#ft').value,id=tidOf(t,curPt),isP=t==='pron'&&Object.keys(PT).length>0;
   if(id!==curT)showTable(id);
-  const sa=$('#sarf');sa.classList.toggle('big',!!id);sa.classList.toggle('isv',id==='v');
+  const sa=$('#sarf');sa.classList.toggle('big',$$('#tbl .tc').length>0);sa.classList.toggle('isv',id==='v');
   sa.style.display=(id||isP||$('#fc').value.trim())?'':'none';
   $('#tbwrap').style.display=(id||isP)?'':'none';
   const tt=id?TT[id]:'',m=tt.match(/^(.*?)( \((.*)\))?$/);
   $('#ttl').textContent=id?m[1]:'';$('#tsub').textContent=id&&m[3]?'('+m[3]+')':'';$('#stt').textContent=id?m[1]:'';
   $('#ptb').style.display=isP?'':'none';$('#ptb').textContent=id?'Pronoun type: '+m[1]+'  (change)':'Choose the pronoun type';
-  $('#tclr').style.display=id?'':'none';
+  $('#tclr').style.display=$$('#tbl .tc').length?'':'none';
   $('#grpline').style.display=GRP[id]?'':'none';$('#grpl').textContent=GRP[id]||'';
   prevType=t;
 }
@@ -493,15 +503,15 @@ document.addEventListener('keydown',e=>{if($('#pm').hidden)return;const n=parseI
 $('#ft').addEventListener('input',()=>{
   const t=$('#ft').value,nid=tidOf(t,'');
   if(curT&&nid!==curT&&anyFilled()&&!confirm('The current table has data. It will be cleared if you change the word class. Continue?')){$('#ft').value=prevType;return}
-  curPt='';syncType();if(t==='pron')openPm();
+  curPt='';syncType();if(t==='pron'&&Object.keys(PT).length)openPm();
 });
 syncType();
 $('#fl').addEventListener('input',()=>$('#sw').textContent=$('#fl').value);
 $('#sarf').addEventListener('toggle',()=>{document.body.style.overflow=($('#sarf').open&&$('#sarf').classList.contains('big'))?'hidden':''});
 $('#sarf>summary').addEventListener('click',e=>{
-  if(!e.target.closest('button')&&$('#ft').value==='pron'&&!curPt){e.preventDefault();openPm();return}
+  if(!e.target.closest('button')&&$('#ft').value==='pron'&&Object.keys(PT).length&&!curPt){e.preventDefault();openPm();return}
   const b=e.target.closest('button');if(!b)return;e.preventDefault();
-  if(b.id==='sv2')save();else{const d=document.getElementById(b.dataset.go);d.open=true;d.scrollIntoView({behavior:'smooth'})}
+  if(b.id==='sv2'){$('#sarf').open=false;msg('Table saved. Press “Save” below to store the whole word.');$('#fdf').focus()}else{const d=document.getElementById(b.dataset.go);d.open=true;d.scrollIntoView({behavior:'smooth'})}
 });
 document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(!$('#pm').hidden){$('#pm').hidden=true;return}if($('#sarf').open&&$('#sarf').classList.contains('big'))$('#sarf').open=false});
 
@@ -594,7 +604,7 @@ function save(){
   if(!w.l){$('#sarf').open=false;msg('Write the word.');$('#fl').focus();return}
   const d=(idx[norm(w.l)]||[]).filter(x=>x.id!==w.id);
   if(d.length&&!confirm('“'+w.l+'” is already saved:\n'+d.map(loc).join('\n')+'\n\nSave it anyway?'))return;
-  const dm=(w.t==='pron'&&!curPt)?'You did not choose the pronoun type.':'';let k;if(p){B[p[0]][p[1]]=w;k=p[0]}else k=place(w);
+  const dm=(w.t==='pron'&&Object.keys(PT).length&&!curPt)?'You did not choose the pronoun type.':'';let k;if(p){B[p[0]][p[1]]=w;k=p[0]}else k=place(w);
   clearForm();rebuild();enqueue(()=>persist(k));msg(dm?'Saved, but ⚠️ '+dm:'Saved ✓',!!dm);$('#fl').focus();
 }
 $('#save').onclick=save;
