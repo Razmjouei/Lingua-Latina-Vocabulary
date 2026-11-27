@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ἑλληνική</title>
-<meta name="app-version" content="f6ef62f026">
+<meta name="app-version" content="dc0daa6424">
 <meta name="theme-color" content="#8a3b2e">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -356,8 +356,8 @@ $('#form').addEventListener('click',e=>{
 setM();
 
 /* verb table */
-const CASES=[],ADV=[],GRP={},PT={},PAR={};
-const TT={n:'ὄνομα',adj:'ἐπίθετον',pron:'ἀντωνυμία',num:'ἀριθμητικόν',v:'ῥῆμα'};
+const CASES=[],ADV=[],GRP={n:'Declension number :'},PT={},PAR={};
+const TT={n:'ΟΝΟΜΑ',adj:'ΟΝΟΜΑ ΕΠΙΘΕΤΟΝ',pron:'ΑΝΤΩΝΥΜΙΑ',num:'ΟΝΟΜΑ ΑΡΙΘΜΗΤΙΚΟΝ',v:'ΡΗΜΑ'};
 const tidOf=(t,pt)=>DECL.includes(t)?t:null;
 function buildTbl(id){return '<p class="mu">The Greek inflection tables are being designed. Please check back soon.</p>'}
 let curT=null,curPt='',prevType='n';
@@ -380,8 +380,8 @@ $('#tundo').onclick=()=>{
   if(!undoVals)return;
   $$('#tbl .tc').forEach((i,n)=>i.value=undoVals[n]||'');fresh=undoFresh;undoVals=null;$('#tundo').hidden=true;clearTimeout(undoT);prog();msg('Undone.');
 };
-function tbLines(){return[]}
-function tbHtml(){return ''}
+function tbLines(w){return w.gr&&GRP[w.t]?['Declension number: '+w.gr]:[]}
+function tbHtml(w){return w.gr&&GRP[w.t]?'<div class="ch">Declension number: '+esc(w.gr)+'</div>':''}
 function side(cur,dir){
   const r=cur.getBoundingClientRect(),cy=r.top+r.height/2,cx=r.left+r.width/2;let best=null,bd=1e9;
   $$('#tbl .tc').filter(i=>{const d=i.closest('.vo');return !d||d.open}).forEach(i=>{if(i===cur)return;const b=i.getBoundingClientRect(),d=(b.left+b.width/2-cx)*dir;if(Math.abs(b.top+b.height/2-cy)<r.height/2&&d>0&&d<bd){bd=d;best=i}});
